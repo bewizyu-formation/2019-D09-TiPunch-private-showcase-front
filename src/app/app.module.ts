@@ -8,11 +8,16 @@ import {APP_CONFIG} from './app.config';
 import {TokenInterceptorService} from './services/interceptors/token-interceptor.service';
 import {ErrorInterceptorService} from './services/interceptors/error-interceptor.service';
 import {CommonHeadersInterceptorService} from './services/interceptors/common-headers-interceptor.service';
+<<<<<<< HEAD
 import {MatButtonModule} from '@angular/material/button';
+=======
+import { SignupComponent } from './signup/signup.component';
+>>>>>>> 0c3948b102d7655a93adf2d5af49c613cef48422
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
