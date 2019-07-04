@@ -11,6 +11,7 @@ import {CommonHeadersInterceptorService} from './services/interceptors/common-he
 import { SignupComponent } from './components/signup/signup.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     BrowserModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    FormsModule ,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},
