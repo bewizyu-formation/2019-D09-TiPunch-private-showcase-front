@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
   constructor(fb: FormBuilder) {
     // Création des contrôles
     this.loginCtrl = fb.control('', [Validators.required]);
-    this.passwordCtrl = fb.control('', [Validators.required ,Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$") /*, passwordValidator*/]);
+    this.passwordCtrl = fb.control('', [Validators.required ,Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,8}$") /*, passwordValidator*/]);
     this.confirmationPasswordCtrl = fb.control('', [Validators.required ]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.cityCtrl = fb.control('', [Validators.required]);
