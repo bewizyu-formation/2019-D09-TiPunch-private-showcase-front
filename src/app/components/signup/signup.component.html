@@ -39,12 +39,13 @@
     </mat-form-field>
 
     <mat-form-field>
-        <input [formControl]="cityCtrl" matInput placeholder="Ville" >
+        <input [formControl]="cityCtrl" matInput placeholder="Ville" [matAutocomplete]="auto">
         <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let ville of villes" [value]="villes">
-              {{ville}}
+            <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+              {{city}}
             </mat-option>
-          </mat-autocomplete>
+        </mat-autocomplete>
+
         <mat-error *ngIf="cityCtrl.dirty && cityCtrl.hasError('required')">
             La ville est requise
         </mat-error>

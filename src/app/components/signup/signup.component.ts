@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { passwordMatchValidator } from 'src/app/validators/password.validator';
+import { Observable } from 'rxjs';
+import { startWith, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signup',
@@ -8,7 +10,8 @@ import { passwordMatchValidator } from 'src/app/validators/password.validator';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  villes: string[] = ['lyon','paris','marseille','nice','toulouse','lorient','lozanne']
+  villes: string[] = ['lyon','paris','marseille','nice','toulouse','lorient','lozanne'];
+  filteredCities: Observable<string[]>;
 
   loginCtrl: FormControl;
   passwordCtrl: FormControl;
@@ -45,5 +48,16 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.filteredCities = this.cityCtrl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.villes.filter(option => option.toLowerCase().includes(filterValue));
   }
 }
