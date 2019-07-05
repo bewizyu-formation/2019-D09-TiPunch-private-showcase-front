@@ -9,9 +9,10 @@ import {TokenInterceptorService} from './services/interceptors/token-interceptor
 import {ErrorInterceptorService} from './services/interceptors/error-interceptor.service';
 import {CommonHeadersInterceptorService} from './services/interceptors/common-headers-interceptor.service';
 import { SignupComponent } from './components/signup/signup.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCardModule, MatFormFieldModule, MatCheckboxModule, MatDatepickerModule, MatRadioModule, MatSelectModule, MatInputModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
-    FormsModule ,
-    ReactiveFormsModule
+    BrowserAnimationsModule,
+    MatInputModule, MatButtonModule, MatCardModule,
+    MatFormFieldModule, MatCheckboxModule, MatDatepickerModule, MatRadioModule, MatSelectModule
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},
