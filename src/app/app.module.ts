@@ -11,6 +11,8 @@ import {ErrorInterceptorService} from './services/interceptors/error-interceptor
 import {CommonHeadersInterceptorService} from './services/interceptors/common-headers-interceptor.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     BrowserModule,
     HttpClientModule,
     MatButtonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+    MatInputModule
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},
