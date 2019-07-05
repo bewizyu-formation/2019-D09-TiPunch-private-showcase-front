@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { passwordMatchValidator, passwordValidator } from 'src/app/validators/password.validator';
+import { passwordMatchValidator } from 'src/app/validators/password.validator';
 
 @Component({
   selector: 'app-signup',
@@ -8,6 +8,7 @@ import { passwordMatchValidator, passwordValidator } from 'src/app/validators/pa
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  villes: string[] = ['lyon','paris','marseille','nice','toulouse','lorient','lozanne']
 
   loginCtrl: FormControl;
   passwordCtrl: FormControl;
@@ -18,11 +19,13 @@ export class SignupComponent implements OnInit {
   descriptionCtrl: FormControl;
   userForm: FormGroup;
 
+  passwordFormGroup: FormGroup;
+
   constructor(fb: FormBuilder) {
     // Création des contrôles
     this.loginCtrl = fb.control('', [Validators.required]);
-    this.passwordCtrl = fb.control('', [Validators.required ,Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,8}$") /*, passwordValidator*/]);
-    this.confirmationPasswordCtrl = fb.control('', [Validators.required ]);
+    this.passwordCtrl = fb.control('', [Validators.required ,Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}$")]);
+    this.confirmationPasswordCtrl = fb.control('', [Validators.required, passwordMatchValidator(this.passwordCtrl)]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.cityCtrl = fb.control('', [Validators.required]);
     this.artistNameCtrl = fb.control('', [Validators.required]);
@@ -43,5 +46,4 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

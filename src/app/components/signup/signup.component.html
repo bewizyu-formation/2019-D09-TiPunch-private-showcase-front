@@ -1,64 +1,72 @@
-<form class="example-container">
+<form [formGroup]="userForm" class="example-container">
 
     <h1>Formulaire d'inscription</h1>
     <mat-form-field>
         <input [formControl]="loginCtrl" matInput placeholder="Login">
-        <div *ngIf="loginCtrl.dirty && loginCtrl.hasError('required')">
+        <mat-error *ngIf="loginCtrl.dirty && loginCtrl.hasError('required')">
             Le champ login est requis
-        </div>
+        </mat-error>
     </mat-form-field>
-
+    
     <mat-form-field>
         <input [formControl]="passwordCtrl" matInput placeholder="Mot de passe">
-        <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">
+        <mat-error *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">
             Le champ password est requis
-        </div>
-        <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('pattern')">
+        </mat-error>
+        <mat-error *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('pattern')">
             Le mot de passe doit contenir une majuscule, une minuscule, un chiffre et 8 caractère
-        </div>
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field>
         <input [formControl]="confirmationPasswordCtrl" matInput placeholder="Confirmer le mot de passe">
-        <div *ngIf="confirmationPasswordCtrl.dirty && confirmationPasswordCtrl.hasError('required')">
+        <mat-error *ngIf="confirmationPasswordCtrl.dirty && confirmationPasswordCtrl.hasError('required')">
             La confirmation est requise
-        </div>
-        <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('pattern')">
-            le mot de passe doit etre le meme
-        </div>
+        </mat-error>
+        <mat-error *ngIf="confirmationPasswordCtrl.dirty && confirmationPasswordCtrl.hasError('matcher')">
+            le mot de passe doit etre identique
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field>
         <input [formControl]="emailCtrl" matInput placeholder="Email">
-        <div *ngIf="emailCtrl.dirty && emailCtrl.hasError('email')">
+        <mat-error *ngIf="emailCtrl.dirty && emailCtrl.hasError('email')">
             Le champ email n'est pas valide
-        </div>
-        <div *ngIf="emailCtrl.dirty && emailCtrl.hasError('required')">
+        </mat-error>
+        <mat-error *ngIf="emailCtrl.dirty && emailCtrl.hasError('required')">
             Le champ email est requis
-        </div>
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-        <input [formControl]="cityCtrl" matInput placeholder="Ville">
-        <div *ngIf="cityCtrl.dirty && cityCtrl.hasError('required')">
+        <input [formControl]="cityCtrl" matInput placeholder="Ville" >
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let ville of villes" [value]="villes">
+              {{ville}}
+            </mat-option>
+          </mat-autocomplete>
+        <mat-error *ngIf="cityCtrl.dirty && cityCtrl.hasError('required')">
             La ville est requise
-        </div>
+        </mat-error>
     </mat-form-field>
 
     <mat-checkbox>Etes vous un artiste proposant des prestations privés?</mat-checkbox>
 
     <mat-form-field>
         <input [formControl]="artistNameCtrl" matInput placeholder="Nom artiste">
-        <div *ngIf="artistNameCtrl.dirty && artistNameCtrl.hasError('required')">
+        <mat-error *ngIf="artistNameCtrl.dirty && artistNameCtrl.hasError('required')">
             Le nom d'artiste est requis
-        </div>
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field>
         <textarea [formControl]="descriptionCtrl" matInput placeholder="Description"></textarea>
-        <div *ngIf="descriptionCtrl.dirty && descriptionCtrl.hasError('required')">
+        <mat-error *ngIf="descriptionCtrl.dirty && descriptionCtrl.hasError('required')">
             La description est requise
-        </div>
+        </mat-error>
+        <mat-error *ngIf="descriptionCtrl.dirty && descriptionCtrl.hasError('maxLength')">
+            La description doit faire moins de 250 caracteres
+        </mat-error>
     </mat-form-field>
 
 </form>
