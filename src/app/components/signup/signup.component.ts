@@ -3,6 +3,9 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { passwordMatchValidator } from 'src/app/validators/password.validator';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
+import { userNameNotTakenValidator } from 'src/app/validators/unique.login.validator';
+import { UserService } from 'src/app/user/user.service';
+import { ArtistNameNotTakenValidator } from 'src/app/validators/unique.artistName.validator';
 
 @Component({
   selector: 'app-signup',
@@ -13,6 +16,7 @@ export class SignupComponent implements OnInit {
   villes: string[] = ['lyon','paris','marseille','nice','toulouse','lorient','lozanne'];
   filteredCities: Observable<string[]>;
 
+
   loginCtrl: FormControl;
   passwordCtrl: FormControl;
   confirmationPasswordCtrl: FormControl;
@@ -22,20 +26,20 @@ export class SignupComponent implements OnInit {
   descriptionCtrl: FormControl;
   userForm: FormGroup;
 
-  passwordFormGroup: FormGroup;
-
-  constructor(fb: FormBuilder) {
-    // Création des contrôles
-    this.loginCtrl = fb.control('', [Validators.required]);
-    this.passwordCtrl = fb.control('', [Validators.required ,Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}$")]);
+  constructor(public fb: FormBuilder , public userService:UserService) {
+    /**
+     * Création des contrôles
+    */ 
+    this.loginCtrl = fb.control('', [Validators.required, userNameNotTakenValidator(this.userService)]);
+    this.passwordCtrl = fb.control('', [Validators.required ,Validators.pattern("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,50}$")]);
     this.confirmationPasswordCtrl = fb.control('', [Validators.required, passwordMatchValidator(this.passwordCtrl)]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.cityCtrl = fb.control('', [Validators.required]);
-    this.artistNameCtrl = fb.control('', [Validators.required]);
+    this.artistNameCtrl = fb.control('', [Validators.required, ArtistNameNotTakenValidator(this.userService)]);
     this.descriptionCtrl = fb.control('', [Validators.required , Validators.maxLength(250)]);
-
-
-    // Création du groupe (formulaire)
+    /**
+     * Création du groupe (formulaire)
+    */
     this.userForm = fb.group({
       login: this.loginCtrl,
       password: this.passwordCtrl,

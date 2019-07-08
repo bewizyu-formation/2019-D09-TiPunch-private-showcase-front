@@ -9,6 +9,9 @@
                 <mat-error *ngIf="loginCtrl.dirty && loginCtrl.hasError('required')">
                     Le champ login est requis
                 </mat-error>
+                <mat-error *ngIf="loginCtrl.dirty && loginCtrl.hasError('loginTaken')">
+                    Ce login existe déjà
+                </mat-error>
             </mat-form-field>
         </div>
 
@@ -74,6 +77,9 @@
                 <input class="container_artist_input" [formControl]="artistNameCtrl " matInput placeholder="Nom artiste ">
                 <mat-error *ngIf="artistNameCtrl.dirty && artistNameCtrl.hasError('required')">
                     Le nom d'artiste est requis
+                </mat-error>
+                <mat-error *ngIf="artistNameCtrll.dirty && artistNameCtrl.hasError('artistNameTaken')">
+                    Ce nom d'artiste existe déjà
                 </mat-error>
             </mat-form-field>
         </div>
