@@ -15,10 +15,9 @@ describe('AppComponent', () => {
       ],
       imports: [
         HttpClientModule,
+        
       ],
-      schemas: [
-        NO_ERRORS_SCHEMA
-      ],
+      schemas: [NO_ERRORS_SCHEMA],
       providers: [
         {provide: APP_CONFIG, useValue: environment},
       ]
@@ -29,7 +28,7 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  it(`should have as title 'private-showcase'`, async(() => {
+  /*it(`should have as title 'private-showcase'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('private-showcase');

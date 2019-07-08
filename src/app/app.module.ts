@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LoginComponent } from './components/login/login.component';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LoginComponent } from './components/login/login.component';
     MatAutocompleteModule,
     MatButtonToggleModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA
+],
   providers: [
     {provide: APP_CONFIG, useValue: environment},
     {provide : HTTP_INTERCEPTORS, useClass : CommonHeadersInterceptorService, multi: true},

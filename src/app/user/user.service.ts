@@ -1,18 +1,19 @@
 import {Injectable} from '@angular/core';
 import {UserRepository} from './user.repository';
-import {HttpResponse} from '@angular/common/http';
+import {HttpResponse, HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+    
 
   /**
    * Authentification JWT Token
    */
   public token: string;
 
-  constructor(private userRepository: UserRepository) {
+  constructor(private userRepository: UserRepository , private http: HttpClient) {
   }
 
   /**
@@ -34,4 +35,16 @@ export class UserService {
         );
     });
   }
+
+
+  checkUsernameNotTaken(login: string):boolean {
+    let json = this.http.get(`http://localhost:8080/users/checkUsernameNotTaken/${login}`);
+    return json['usernameNotTaken'];
+  }
+
+  checkArtistNameNotTaken(artistName: string):boolean {
+    let json = this.http.get(`http://localhost:8080/users/checkArtistNameNotTaken/${artistName}`);
+    return json['artistNameNotTaken'];
+  }
+
 }

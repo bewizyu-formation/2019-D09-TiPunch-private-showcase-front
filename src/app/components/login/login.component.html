@@ -2,7 +2,7 @@
 
   <p class="container_title">Formulaire de connexion</p>
   <!--Formulaire de connexion-->
-  <form [formGroup]="loginForm">
+  <form [formGroup]="loginForm" class="container_form">
     <mat-error class="container_notAuth" *ngIf="!isAuth">
       Identifiant ou mot de passe incorrect
     </mat-error>
