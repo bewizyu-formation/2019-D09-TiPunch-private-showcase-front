@@ -1,0 +1,40 @@
+<div class="container">
+
+  <p class="container_title">Formulaire de connexion</p>
+  <!--Formulaire de connexion-->
+  <form [formGroup]="loginForm">
+    <mat-error class="container_notAuth" *ngIf="!isAuth">
+      Identifiant ou mot de passe incorrect
+    </mat-error>
+    <!--Conteneur Login-->
+    <div class="container_login">
+      <mat-form-field class="container_bound">
+        <input formControlName="login" matInput placeholder="Identifiant">
+        <mat-error *ngIf="loginCtrl.dirty && loginCtrl.hasError('required')">
+          Le champs identifiant est obligatoire
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <!--Conteneur Password-->
+    <div class="container_password">
+      <mat-form-field class="container_bound">
+        <input formControlName="password" matInput placeholder="Mot de passe">
+        <mat-error *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">
+          Le champ mot de passe est obligatoire
+        </mat-error>
+        <mat-error *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('pattern')">
+          Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et 8 caractères
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <!--Conteneur boutons Valider / Annuler-->
+    <div class="container_buttons">
+      <mat-button-toggle (click)="return()" class="container_cancelButton container_button">
+        <p class="container_button_paragraph">Annuler</p>
+      </mat-button-toggle>
+      <mat-button-toggle (click)="submit()" [disabled]="loginForm.invalid" class="container_validateButton container_button">
+        <p class="container_button_paragraph">Valider</p>
+      </mat-button-toggle>
+    </div>
+  </form>
+</div>
