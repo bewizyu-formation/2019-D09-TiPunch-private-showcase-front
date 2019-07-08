@@ -21,13 +21,15 @@ export class SignupComponent implements OnInit {
   artistNameCtrl: FormControl;
   descriptionCtrl: FormControl;
   userForm: FormGroup;
+  noArtistForm: FormGroup
 
   passwordFormGroup: FormGroup;
+  isHidden:boolean= true;
 
   constructor(fb: FormBuilder) {
-    // Création des contrôles
+    // Creation of controlers
     this.loginCtrl = fb.control('', [Validators.required]);
-    this.passwordCtrl = fb.control('', [Validators.required ,Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}$")]);
+    this.passwordCtrl = fb.control('', [Validators.required ,Validators.pattern("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,50}$")]);
     this.confirmationPasswordCtrl = fb.control('', [Validators.required, passwordMatchValidator(this.passwordCtrl)]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.cityCtrl = fb.control('', [Validators.required]);
@@ -35,7 +37,7 @@ export class SignupComponent implements OnInit {
     this.descriptionCtrl = fb.control('', [Validators.required , Validators.maxLength(250)]);
 
 
-    // Création du groupe (formulaire)
+    // Creation of global form group 
     this.userForm = fb.group({
       login: this.loginCtrl,
       password: this.passwordCtrl,
@@ -45,6 +47,20 @@ export class SignupComponent implements OnInit {
       artistName: this.artistNameCtrl,
       description: this.descriptionCtrl
     });
+
+    //Creation of no Artist form group
+    this.noArtistForm = fb.group({
+      login: this.loginCtrl,
+      password: this.passwordCtrl,
+      confirmationPassword: this.confirmationPasswordCtrl,
+      email: this.emailCtrl,
+      city: this.cityCtrl,
+     
+    });
+
+  }
+  handleClick(){
+    this.isHidden=!this.isHidden;
   }
 
   ngOnInit() {

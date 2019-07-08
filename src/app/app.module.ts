@@ -16,6 +16,7 @@ import {MatInputModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     {provide : HTTP_INTERCEPTORS, useClass : CommonHeadersInterceptorService, multi: true},
     {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptorService, multi: true},
     {provide : HTTP_INTERCEPTORS, useClass : ErrorInterceptorService, multi: true},
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA
   ],
   bootstrap: [AppComponent]
 })
