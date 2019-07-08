@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
   //cities: string[] = ['lyon','paris','marseille','nice','toulouse','lorient','lozanne'];
   filteredCities: Observable<string[]>;
 
-  cities:Array<string> = [];
+  cities: Array<string> = [];
 
   loginCtrl: FormControl;
   passwordCtrl: FormControl;
@@ -28,22 +28,24 @@ export class SignupComponent implements OnInit {
   artistNameCtrl: FormControl;
   descriptionCtrl: FormControl;
   userForm: FormGroup;
+  noArtistForm: FormGroup;
 
-  constructor(public fb: FormBuilder , public userService:UserService , public communeService:CommuneService , private http: HttpClient) {
-    
-    /**
-     * Création des contrôles
-    */ 
+  isHidden: boolean = true;
+
+  constructor(public fb: FormBuilder, public userService: UserService, public communeService: CommuneService, private http: HttpClient) {
+
+
+    // Creation of controlers
     this.loginCtrl = fb.control('', [Validators.required, userNameNotTakenValidator(this.userService)]);
-    this.passwordCtrl = fb.control('', [Validators.required ,Validators.pattern("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,50}$")]);
+    this.passwordCtrl = fb.control('', [Validators.required, Validators.pattern("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,50}$")]);
     this.confirmationPasswordCtrl = fb.control('', [Validators.required, passwordMatchValidator(this.passwordCtrl)]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.cityCtrl = fb.control('', [Validators.required]);
     this.artistNameCtrl = fb.control('', [Validators.required, ArtistNameNotTakenValidator(this.userService)]);
-    this.descriptionCtrl = fb.control('', [Validators.required , Validators.maxLength(250)]);
-    /**
-     * Création du groupe (formulaire)
-    */
+    this.descriptionCtrl = fb.control('', [Validators.required, Validators.maxLength(250)]);
+
+
+    // Creation of global form group 
     this.userForm = fb.group({
       login: this.loginCtrl,
       password: this.passwordCtrl,
@@ -53,19 +55,34 @@ export class SignupComponent implements OnInit {
       artistName: this.artistNameCtrl,
       description: this.descriptionCtrl
     });
+
+    //Creation of no Artist form group
+    this.noArtistForm = fb.group({
+      login: this.loginCtrl,
+      password: this.passwordCtrl,
+      confirmationPassword: this.confirmationPasswordCtrl,
+      email: this.emailCtrl,
+      city: this.cityCtrl,
+
+    });
+
   }
 
-  getCities (){
+  handleClick() {
+    this.isHidden = !this.isHidden;
+  }
+
+  getCities() {
     this.communeService.commune(this.cityCtrl)
-        .then(data => {
-            this.cities = data;
-            console.log(this.cities)
-        })
-}
+      .then(data => {
+        this.cities = data;
+        console.log(this.cities)
+      })
+  }
 
   ngOnInit() {
     this.getCities()
-    
+
     this.filteredCities = this.cityCtrl.valueChanges
       .pipe(
         startWith(''),
@@ -73,9 +90,6 @@ export class SignupComponent implements OnInit {
       );
   }
 
-  test(){
-    console.log(this.cities);
-  }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();

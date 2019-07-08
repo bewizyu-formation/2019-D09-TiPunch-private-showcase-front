@@ -1,4 +1,11 @@
-/*global container of form*/
+/*global cotainer*/
+
+.global-container {
+    margin-top: 64px;
+}
+
+
+/* container of form*/
 
 .container {
     display: flex;
@@ -7,7 +14,6 @@
     text-align: center;
     margin: auto;
     max-width: 682px;
-    height: 774px;
     border-radius: 14px;
     background-color: #e7e6e6;
 }
@@ -46,64 +52,43 @@
 /*Login field's css*/
 
 .container_login {
-    margin: 25px 143px 22px 143px;
-}
-
-.container_login_input {
-    width: 72px;
-    height: 24px;
+    margin: 25px 143px 30px 143px;
 }
 
 
 /*Password field's css*/
 
 .container_password {
-    margin: 0px 143px 15px 143px;
-}
-
-.container_password_input {
-    width: 97px;
-    height: 24px;
+    margin: 0px 0 33px;
 }
 
 
 /*ConfirmationPassword field's css*/
 
 .container_confirmationPassword {
-    margin: 0px 143px 15px 143px;
-}
-
-.container_confirmationPassword_input {
-    width: 190px;
-    height: 24px;
+    margin: 0px 0 20px;
 }
 
 
 /*Email field's css*/
 
 .container_email {
-    margin: 0px 143px 27px 143px;
-}
-
-.container_email_input {
-    width: 40px;
-    height: 24px;
+    margin: 0px 0 25px;
 }
 
 
 /*City field's css*/
 
 .container_city {
-    margin: 0px 143px 33px 143px;
-}
-
-.container_city_input {
-    width: 31px;
-    height: 24px;
+    margin: 0px 0 33px;
 }
 
 
 /*Checkbox filed's css*/
+
+.checkbox {
+    margin-bottom: 15px;
+}
 
 .container_checkbox {
     width: 18px;
@@ -122,11 +107,7 @@
 .container_artist {
     width: 396px;
     height: 48px;
-}
-
-.container_artist_input {
-    width: 96px;
-    height: 24px;
+    margin-bottom: 20px;
 }
 
 
@@ -134,12 +115,7 @@
 
 .container_description {
     width: 396.8px;
-    height: 120px;
-}
-
-.container_description_input {
-    width: 377.4px;
-    height: 72px;
+    height: 100px;
 }
 
 
@@ -150,24 +126,32 @@
     height: 36px;
 }
 
-.container_validadedButton {
+.container_validadedbutton {
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    margin-right: 17px;
+    background-color: #4a4a4a;
+}
+
+.container_canceledbutton {
     border-radius: 2px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
     background-color: #17998c;
 }
 
-.container_canceledButton {
-    border-radius: 2px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
-    background-color: #4a4a4a;
+.mat-button-toggle-disabled {
+    background-color: #e7f4f3;
+    color: lightgray;
 }
 
 .container_button_paragraph {
     margin: auto;
 }
 
-.container_Buttons {
+.container_buttons {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
+    width: 396px;
+    margin-bottom: 30px;
 }
