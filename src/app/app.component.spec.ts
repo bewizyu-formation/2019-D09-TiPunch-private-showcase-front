@@ -3,6 +3,7 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {APP_CONFIG} from './app.config';
 import {environment} from '../environments/environment';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler/src/core';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -11,8 +12,9 @@ describe('AppComponent', () => {
         AppComponent
       ],
       imports: [
-        HttpClientModule,
+        HttpClientModule
       ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         {provide: APP_CONFIG, useValue: environment},
       ]
