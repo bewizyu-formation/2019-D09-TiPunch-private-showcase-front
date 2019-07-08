@@ -6,6 +6,8 @@ import { startWith, map } from 'rxjs/operators';
 import { userNameNotTakenValidator } from 'src/app/validators/unique.login.validator';
 import { UserService } from 'src/app/user/user.service';
 import { ArtistNameNotTakenValidator } from 'src/app/validators/unique.artistName.validator';
+import { HttpClient } from '@angular/common/http';
+import { CommuneService } from 'src/app/commune/commune.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,9 +15,10 @@ import { ArtistNameNotTakenValidator } from 'src/app/validators/unique.artistNam
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  villes: string[] = ['lyon','paris','marseille','nice','toulouse','lorient','lozanne'];
+  //cities: string[] = ['lyon','paris','marseille','nice','toulouse','lorient','lozanne'];
   filteredCities: Observable<string[]>;
 
+  cities:Array<string> = [];
 
   loginCtrl: FormControl;
   passwordCtrl: FormControl;
@@ -26,7 +29,8 @@ export class SignupComponent implements OnInit {
   descriptionCtrl: FormControl;
   userForm: FormGroup;
 
-  constructor(public fb: FormBuilder , public userService:UserService) {
+  constructor(public fb: FormBuilder , public userService:UserService , public communeService:CommuneService , private http: HttpClient) {
+    
     /**
      * Création des contrôles
     */ 
@@ -51,7 +55,17 @@ export class SignupComponent implements OnInit {
     });
   }
 
+  getCities (){
+    this.communeService.commune(this.cityCtrl)
+        .then(data => {
+            this.cities = data;
+            console.log(this.cities)
+        })
+}
+
   ngOnInit() {
+    this.getCities()
+    
     this.filteredCities = this.cityCtrl.valueChanges
       .pipe(
         startWith(''),
@@ -59,9 +73,13 @@ export class SignupComponent implements OnInit {
       );
   }
 
+  test(){
+    console.log(this.cities);
+  }
+
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.villes.filter(option => option.toLowerCase().includes(filterValue));
+    return this.cities.filter(option => option.toLowerCase().includes(filterValue));
   }
 }
