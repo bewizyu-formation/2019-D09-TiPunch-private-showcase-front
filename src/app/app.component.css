@@ -24,6 +24,7 @@
   top: 0;
   height: 64px;
   color: #ffffff;
+  z-index: 1;
 }
 
 .header_title{
@@ -89,10 +90,15 @@
 }
 
 .main_body{
-  padding: 0 200px 0 200px;
+  padding: 0 51px 0 51px;
 }
 
-.main_title{
+.welcome{
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.welcome_title{
   margin-top: 32px;
   font-family: Roboto;
   font-size: 20px;
@@ -101,7 +107,7 @@
   font-weight: 500;
 }
 
-.main_subtitle{
+.welcome_subtitle{
   font-family: Roboto;
   font-size: 14px;
   margin-top: 3px;
@@ -109,15 +115,16 @@
   color: #ffffff;
 }
 
-.main_chooses{
-  margin-top: 40px;
+.welcome_chooses{
   margin-bottom: 57px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.main_choose{
+.welcome_choose{
+  margin-top: 40px;
   width: 239px;
   height: 263px;
   display: flex;
@@ -131,12 +138,27 @@
   background-color: #b8b6b6;
 }
 
-.main_choose-margin{
-  margin-left: 50px;
-  margin-right: 52px;
-}
-
 .choose_img{
   clip-path: ellipse(50% 50% at 50% 50%);
   margin-top: 12px;
+}
+
+.choose_title{
+  margin-left: 1px;
+  font-family: Roboto;
+  font-size: 24px;
+  line-height: 1.33;
+  color: #ffffff;
+  margin-top: 5px;
+  margin-bottom: 4px;
+}
+
+.choose_subtitle{
+  margin: 0;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 1.25;
+  width: 209px;
+  text-align: justify;
+  color: #ffffff;
 }
