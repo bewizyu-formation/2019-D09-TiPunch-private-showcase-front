@@ -1,5 +1,5 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
@@ -18,6 +18,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { MainWithBannerComponent } from './components/main-with-banner/main-with-banner.component';
 import { MainWithoutBannerComponent } from './components/main-without-banner/main-without-banner.component';
 import { HeaderSignComponent } from './components/header-sign/header-sign.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+
 
 @NgModule({
   declarations: [
@@ -31,17 +38,26 @@ import { HeaderSignComponent } from './components/header-sign/header-sign.compon
   imports: [
     BrowserModule,
     HttpClientModule,
-    MatButtonModule,
+
     MatFormFieldModule,
-    BrowserAnimationsModule,
+    MatCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatInputModule,
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatButtonToggleModule,
+    MatButtonModule,
     AppRoutingModule
   ],
   providers: [
-    {provide: APP_CONFIG, useValue: environment},
-    {provide : HTTP_INTERCEPTORS, useClass : CommonHeadersInterceptorService, multi: true},
-    {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptorService, multi: true},
-    {provide : HTTP_INTERCEPTORS, useClass : ErrorInterceptorService, multi: true},
+    { provide: APP_CONFIG, useValue: environment },
+    { provide: HTTP_INTERCEPTORS, useClass: CommonHeadersInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA
   ],
   bootstrap: [AppComponent]
 })

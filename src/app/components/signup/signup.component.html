@@ -1,0 +1,117 @@
+<div class="global-container">
+
+
+    <form [formGroup]="userForm" class="container">
+        <p class="container_title">Formulaire d'inscription</p>
+        <div [formGroup]="noArtistForm">
+            <div class="container_login">
+                <mat-form-field class="container_bound ">
+                    <input class="container_login_input" [formControl]="loginCtrl" matInput placeholder="Login">
+                    <mat-error *ngIf="loginCtrl.dirty && loginCtrl.hasError('required')">
+                        Le champ login est requis
+                    </mat-error>
+                    <mat-error *ngIf="loginCtrl.dirty && loginCtrl.hasError('loginTaken')">
+                        Ce login existe déjà
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="container_password">
+                <mat-form-field class="container_bound">
+                    <input type="password" class="container_password_input" [formControl]=" passwordCtrl " matInput placeholder="Mot de passe ">
+                    <mat-error *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">
+                        Le champ password est requis
+                    </mat-error>
+                    <mat-error *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('pattern')">
+                        Le mot de passe doit contenir une majuscule, une minuscule, un chiffre et 8 caractère
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="container_confirmationPassword">
+                <mat-form-field class="container_bound ">
+                    <input type="password" class="container_confirmationPassword_input" [formControl]="confirmationPasswordCtrl " matInput placeholder="Confirmer le mot de passe ">
+                    <mat-error *ngIf="confirmationPasswordCtrl.dirty && confirmationPasswordCtrl.hasError('required')">
+                        La confirmation est requise
+                    </mat-error>
+                    <mat-error *ngIf="confirmationPasswordCtrl.dirty && confirmationPasswordCtrl.hasError('matcher')">
+                        le mot de passe doit etre identique
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="container_email">
+                <mat-form-field class="container_bound ">
+                    <input type="text" class="container_email_input" [formControl]="emailCtrl " matInput placeholder="Email ">
+                    <mat-error *ngIf="emailCtrl.dirty && emailCtrl.hasError('email')">
+                        Le champ email n'est pas valide
+                    </mat-error>
+                    <mat-error *ngIf="emailCtrl.dirty && emailCtrl.hasError('required')">
+                        Le champ email est requis
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            
+
+        <div class="container_city">
+            <mat-form-field class="container_bound ">
+                <input (change)="getCities()" class="container_city_input" [formControl]="cityCtrl " matInput placeholder="Ville" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+                      {{city}}
+                    </mat-option>
+                </mat-autocomplete>
+        
+                <mat-error *ngIf="cityCtrl.dirty && cityCtrl.hasError('required')">
+                    La ville est requise
+                </mat-error>
+            </mat-form-field>
+                    
+            </div>
+            <div class="checkbox" (click)="handleClick()">
+                <mat-checkbox class="container_checkbox">
+                    <p class="container_checkbox_text">Etes vous un artiste proposant des prestations privés?</p>
+                </mat-checkbox>
+            </div>
+        </div>
+
+        <div [hidden]="isHidden">
+
+        <div class="container_artist">
+            <mat-form-field class="container_bound ">
+                <input class="container_artist_input" [formControl]="artistNameCtrl " matInput placeholder="Nom artiste ">
+                <mat-error *ngIf="artistNameCtrl.dirty && artistNameCtrl.hasError('required')">
+                    Le nom d'artiste est requis
+                </mat-error>
+                <mat-error *ngIf="artistNameCtrl.dirty && artistNameCtrl.hasError('artistNameTaken')">
+                    Ce nom d'artiste existe déjà
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+
+            <div class="container_description">
+                <mat-form-field class="container_bound ">
+                    <textarea class="container_description_input" [formControl]="descriptionCtrl " matInput placeholder="Description "></textarea>
+                    <mat-error *ngIf="descriptionCtrl.dirty && descriptionCtrl.hasError('required')">
+                        La description est requise
+                    </mat-error>
+                    <mat-error *ngIf="descriptionCtrl.dirty && descriptionCtrl.hasError('maxlength')">
+                        La description doit faire moins de 250 caracteres
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="container_buttons">
+            <mat-button-toggle type="submit" class="container_validadedbutton container_button">
+                <p class="container_button_paragraph">Annuler</p>
+            </mat-button-toggle>
+            <mat-button-toggle type="submit" class="container_canceledbutton container_button" [disabled]="isHidden? noArtistForm.invalid : userForm.invalid ">
+                <p class="container_button_paragraph">Valider</p>
+            </mat-button-toggle>
+        </div>
+
+    </form>
+</div>
