@@ -108,7 +108,7 @@
             <mat-button-toggle type="submit" class="container_validadedbutton container_button">
                 <p class="container_button_paragraph">Annuler</p>
             </mat-button-toggle>
-            <mat-button-toggle type="submit" class="container_canceledbutton container_button" [disabled]="isHidden? noArtistForm.invalid : userForm.invalid ">
+            <mat-button-toggle (click)="submit()" class="container_canceledbutton container_button" [disabled]="isHidden? noArtistForm.invalid : userForm.invalid ">
                 <p class="container_button_paragraph">Valider</p>
             </mat-button-toggle>
         </div>
