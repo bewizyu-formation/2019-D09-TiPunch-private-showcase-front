@@ -8,6 +8,7 @@ import {APP_CONFIG} from './app.config';
 import {TokenInterceptorService} from './services/interceptors/token-interceptor.service';
 import {ErrorInterceptorService} from './services/interceptors/error-interceptor.service';
 import {CommonHeadersInterceptorService} from './services/interceptors/common-headers-interceptor.service';
+
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -18,6 +19,12 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
+
+import {MatButtonModule} from '@angular/material/button';
+
+import { SignupComponent } from './signup/signup.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +33,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
   imports: [
     BrowserModule,
     HttpClientModule,
+
     MatFormFieldModule,
     MatCheckboxModule,
     FormsModule,
@@ -34,6 +42,9 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonToggleModule
+
+    MatButtonModule
+
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},
