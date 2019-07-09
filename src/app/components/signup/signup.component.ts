@@ -76,7 +76,6 @@ export class SignupComponent implements OnInit {
     this.communeService.commune(this.cityCtrl)
       .then(data => {
         this.cities = data;
-        console.log(this.cities)
       })
   }
 
@@ -89,7 +88,6 @@ export class SignupComponent implements OnInit {
         map(value => this._filter(value))
       );
   }
-
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();

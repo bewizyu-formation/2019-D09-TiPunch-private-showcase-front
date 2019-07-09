@@ -7,29 +7,29 @@ import { FormControl } from "@angular/forms";
 
 
 @Injectable({
-    providedIn: 'root'
-  })
-  export class CommuneService {
+  providedIn: 'root'
+})
+export class CommuneService {
 
-    cities:Array<string>;
-     
-    constructor(private communeRepository: CommuneRepository , private http: HttpClient) {
-    }
+  cities: Array<string>;
 
-    /**
-   * Get the cities name list
-   * @param control input field
-   */
-    commune(control:FormControl): Promise<Array<string>> {
-        return new Promise ((resolve) => {
-          this.communeRepository
-            .commune(control)
-            .subscribe((response) => {
-                this.cities = response.map(item=> item.nom);
-              resolve(this.cities);
-            });
+  constructor(private communeRepository: CommuneRepository, private http: HttpClient) {
+  }
+
+  /**
+ * Get the cities name list
+ * @param control input field
+ */
+  commune(control: FormControl): Promise<Array<string>> {
+    return new Promise((resolve) => {
+      this.communeRepository
+        .commune(control)
+        .subscribe((response) => {
+          this.cities = response.map(item => item.nom);
+          resolve(this.cities);
         });
-      }
+    });
+  }
 
 
 }

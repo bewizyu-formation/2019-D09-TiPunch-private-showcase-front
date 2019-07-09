@@ -20,7 +20,7 @@ describe('SignupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SignupComponent ],
+      declarations: [SignupComponent],
       imports: [
         BrowserModule,
         HttpClientModule,
@@ -35,12 +35,12 @@ describe('SignupComponent', () => {
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        {provide: APP_CONFIG, useValue: environment},
-        {provide : HTTP_INTERCEPTORS, useClass : CommonHeadersInterceptorService, multi: true},
-        {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptorService, multi: true},
-        {provide : HTTP_INTERCEPTORS, useClass : ErrorInterceptorService, multi: true},]
+        { provide: APP_CONFIG, useValue: environment },
+        { provide: HTTP_INTERCEPTORS, useClass: CommonHeadersInterceptorService, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

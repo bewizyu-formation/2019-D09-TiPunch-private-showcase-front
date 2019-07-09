@@ -7,8 +7,8 @@ import { FormControl } from "@angular/forms";
 
 
 @Injectable({
-    providedIn: 'root'
-  })
+  providedIn: 'root'
+})
 export class CommuneRepository {
   constructor(private http: HttpClient, private env: EnvironmentService) {
   }
@@ -17,8 +17,8 @@ export class CommuneRepository {
    * Get the cities list
    * @param control input field
    */
-  commune(control:FormControl): Observable<any> {
+  commune(control: FormControl): Observable<any> {
     console.log(control.value);
-      return this.http.get(`https://geo.api.gouv.fr/communes?nom=${control.value}`);
+    return this.http.get(`https://geo.api.gouv.fr/communes?nom=${control.value}`);
   }
 }
