@@ -1,0 +1,22 @@
+.main {
+    margin-top: 64px;
+}
+
+.corps {
+    padding: 0 56px;
+}
+
+.bannire {
+    object-fit: cover;
+    position: relative;
+    width: 100%;
+    height: calc(22.97vw - 17px);
+    overflow: hidden;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.bannire_img {
+    position: absolute;
+    width: 100%;
+    object-fit: contain;
+}
