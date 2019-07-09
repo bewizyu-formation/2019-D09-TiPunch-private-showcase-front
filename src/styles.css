@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: #9B9B9B;
+    margin: 0;
+}
