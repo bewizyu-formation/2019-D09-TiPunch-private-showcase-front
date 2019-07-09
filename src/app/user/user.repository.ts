@@ -33,6 +33,7 @@ export class UserRepository {
   signUpUser(user:User){
     console.log("REPO USER");
     console.log(user);
+    console.log(user.username);
     return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_SIGNUP_USER}`,{
       username: user.username,
       password: user.password,
@@ -40,7 +41,7 @@ export class UserRepository {
       city: user.city,
       roles: user.roles    
     },{
-      observe: 'response';
+      observe: 'response'
     });
   }
 
@@ -54,6 +55,15 @@ export class UserRepository {
       description: artist.description,
       roles: artist.roles
     });
+  }
+
+  checkUsernameNotTaken(login: string): Observable<any> {
+    return this.http.get(`http://localhost:8080/users/checkUsernameNotTaken/${login}`);
+ 
+  }
+
+  checkArtistNameNotTaken(artistName: string): Observable<any> {
+    return this.http.get(`http://localhost:8080/users/checkArtistNameNotTaken/${artistName}`);
   }
 
   

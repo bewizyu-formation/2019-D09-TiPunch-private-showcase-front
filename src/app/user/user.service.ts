@@ -15,6 +15,8 @@ export class UserService {
    */
   public token: string;
 
+  private checkLogin: boolean;
+
   constructor(private userRepository: UserRepository, private http: HttpClient) {
   }
 
@@ -52,9 +54,19 @@ export class UserService {
   }
 
 
-  checkUsernameNotTaken(login: string): boolean {
-    const json = this.http.get(`http://localhost:8080/users/checkUsernameNotTaken/${login}`);
-    return json['usernameNotTaken'];
+  checkUsernameNotTaken(login: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.userRepository
+        .checkUsernameNotTaken(login)
+        .subscribe((response: HttpResponse<any>) => {
+          console.log(response.status);
+          this.checkLogin = response['usernameNotTaken'];
+          resolve(this.checkLogin);
+        }, () => {
+          reject('Erreur');
+        },
+        );
+    });
   }
 
   checkArtistNameNotTaken(artistName: string): boolean {

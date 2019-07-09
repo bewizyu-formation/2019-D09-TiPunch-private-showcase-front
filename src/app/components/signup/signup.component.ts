@@ -44,9 +44,9 @@ export class SignupComponent implements OnInit {
     this.confirmationPasswordCtrl = fb.control('', [Validators.required, passwordMatchValidator(this.passwordCtrl)]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.cityCtrl = fb.control('', [Validators.required]);
-    this.artistNameCtrl = fb.control('', [Validators.required, ArtistNameNotTakenValidator(this.userService)]);
+    this.artistNameCtrl = fb.control('', [Validators.required]);
     this.descriptionCtrl = fb.control('', [Validators.required, Validators.maxLength(250)]);
-    // , userNameNotTakenValidator(this.userService)
+    // , userNameNotTakenValidator(this.userService)  ArtistNameNotTakenValidator(this.userService)
 
     /**
      * Creation of global form group
