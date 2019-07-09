@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MainWithoutBannerComponent } from './main-without-banner.component';
-import { AppRoutingModule } from 'src/app/app-routing.module';
+import {MainWithoutBannerComponent} from './main-without-banner.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('MainWithoutBannerComponent', () => {
   let component: MainWithoutBannerComponent;
@@ -9,12 +9,14 @@ describe('MainWithoutBannerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainWithoutBannerComponent ],
+      declarations: [
+        MainWithoutBannerComponent
+      ],
       imports: [
-        AppRoutingModule
+        RouterTestingModule
       ]
-    })
-    .compileComponents();
+    }).compileComponents()
+      .catch((e) => console.error(e));
   }));
 
   beforeEach(() => {

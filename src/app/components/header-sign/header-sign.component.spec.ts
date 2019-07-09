@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HeaderSignComponent } from './header-sign.component';
+import {HeaderSignComponent} from './header-sign.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('HeaderSignComponent', () => {
   let component: HeaderSignComponent;
@@ -8,9 +9,13 @@ describe('HeaderSignComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderSignComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        HeaderSignComponent
+      ],
+      imports: [
+        RouterTestingModule
+      ]
+    }).compileComponents().catch((e) => console.error(e));
   }));
 
   beforeEach(() => {
