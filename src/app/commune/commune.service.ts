@@ -1,8 +1,7 @@
-import { Injectable } from "@angular/core";
-import { CommuneRepository } from "./commune.repository";
-import { HttpClient } from "@angular/common/http";
-import { City } from "../models/city";
-import { FormControl } from "@angular/forms";
+import { Injectable } from '@angular/core';
+import { CommuneRepository } from './commune.repository';
+import { HttpClient } from '@angular/common/http';
+import { FormControl } from '@angular/forms';
 
 
 
@@ -30,6 +29,4 @@ export class CommuneService {
         });
     });
   }
-
-
 }

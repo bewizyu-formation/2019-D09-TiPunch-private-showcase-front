@@ -38,7 +38,8 @@ describe('SignupComponent', () => {
         { provide: APP_CONFIG, useValue: environment },
         { provide: HTTP_INTERCEPTORS, useClass: CommonHeadersInterceptorService, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },]
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
+      ]
     })
       .compileComponents();
   }));

@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 import { EnvironmentService } from '../services/environment.service';
 import { APP_CONFIG } from '../app.config';
 
-import { CommuneRepository } from "./commune.repository";
+import { CommuneRepository } from './commune.repository';
 
 
 
@@ -30,4 +30,4 @@ describe('CommuneRepository', () => {
     const service: CommuneRepository = TestBed.get(CommuneRepository);
     expect(service).toBeTruthy();
   });
-})
+});

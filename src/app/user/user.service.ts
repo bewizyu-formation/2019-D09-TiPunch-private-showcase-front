@@ -35,12 +35,12 @@ export class UserService {
 
 
   checkUsernameNotTaken(login: string): boolean {
-    let json = this.http.get(`http://localhost:8080/users/checkUsernameNotTaken/${login}`);
+    const json = this.http.get(`http://localhost:8080/users/checkUsernameNotTaken/${login}`);
     return json['usernameNotTaken'];
   }
 
   checkArtistNameNotTaken(artistName: string): boolean {
-    let json = this.http.get(`http://localhost:8080/users/checkArtistNameNotTaken/${artistName}`);
+    const json = this.http.get(`http://localhost:8080/users/checkArtistNameNotTaken/${artistName}`);
     return json['artistNameNotTaken'];
   }
 }
