@@ -1,5 +1,4 @@
 {
-
     "name": "private-showcase",
     "version": "0.0.0",
     "scripts": {
@@ -50,4 +49,3 @@
         "typescript": "~2.9.2"
     }
 }
-
