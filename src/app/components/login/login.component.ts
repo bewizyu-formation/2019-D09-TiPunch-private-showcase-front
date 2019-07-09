@@ -14,20 +14,20 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   token: string;
   error: string;
-  isAuth: boolean = true;
-  
-  constructor(fb: FormBuilder, private service:UserService) {
+  isAuth = true;
+
+  constructor(fb: FormBuilder, private service: UserService) {
     // FormControl creation for Username
     this.loginCtrl = fb.control('', [Validators.required]);
     // FormControl creation for Password
-    this.passwordCtrl = fb.control('', [Validators.required, Validators.pattern("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,50}$")]);
+    this.passwordCtrl = fb.control('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,50}$')]);
 
     // FormGroup creation
     this.loginForm = fb.group({
       login: this.loginCtrl,
-      password: this.passwordCtrl
-    })
-   }
+      password: this.passwordCtrl,
+    });
+  }
 
   /**
    * User submit his username and password.
@@ -46,18 +46,18 @@ export class LoginComponent implements OnInit {
         // Redirection to homePage
       })
       .catch(e => {
-        console.log('User unknown', e)
+        console.log('User unknown', e);
         this.error = 'Identifiant ou mot de passe incorrect';
         this.isAuth = !this.isAuth;
       });
-    }
+  }
 
-    /**
-     * User return to welcome page
-     */
-    return(){
+  /**
+   * User return to welcome page
+   */
+  return() {
 
-    }
+  }
 
   ngOnInit() {
   }

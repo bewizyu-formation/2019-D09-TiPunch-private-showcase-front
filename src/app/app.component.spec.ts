@@ -1,8 +1,8 @@
-import {async, TestBed} from '@angular/core/testing';
-import {AppComponent} from './app.component';
-import {HttpClientModule} from '@angular/common/http';
-import {APP_CONFIG} from './app.config';
-import {environment} from '../environments/environment';
+import { async, TestBed } from '@angular/core/testing';
+import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { APP_CONFIG } from './app.config';
+import { environment } from '../environments/environment';
 import { LoginComponent } from './components/login/login.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
@@ -15,11 +15,10 @@ describe('AppComponent', () => {
       ],
       imports: [
         HttpClientModule,
-        
       ],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [
-        {provide: APP_CONFIG, useValue: environment},
+        { provide: APP_CONFIG, useValue: environment },
       ]
     }).compileComponents();
   }));

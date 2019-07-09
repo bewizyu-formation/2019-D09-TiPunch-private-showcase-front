@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LoginComponent } from './login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -7,7 +6,6 @@ import { MatFormFieldModule, MatCheckboxModule, MatInputModule, MatAutocompleteM
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { UserService } from 'src/app/user/user.service';
 import { APP_CONFIG } from 'src/app/app.config';
 import { environment } from 'src/environments/environment';
 import { TokenInterceptorService } from 'src/app/services/interceptors/token-interceptor.service';
