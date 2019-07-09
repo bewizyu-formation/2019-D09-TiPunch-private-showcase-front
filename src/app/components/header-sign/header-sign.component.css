@@ -1,0 +1,23 @@
+.header_sign {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 32px;
+}
+
+.sign_button {
+    padding: 10px;
+    min-width: 0;
+    line-height: normal;
+    background-color: transparent;
+    font-family: Roboto;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.sign_separator {
+    font-family: Roboto;
+    margin: auto 0;
+    font-size: 14px;
+    vertical-align: baseline;
+}
