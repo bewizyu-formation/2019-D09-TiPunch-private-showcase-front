@@ -4,11 +4,11 @@ import { passwordMatchValidator } from './password.validator';
 
 
 
-describe('passwordMatchValidator', () => {
+describe('passwordValidator', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [passwordMatchValidator],
+      declarations: [passwordMatchValidator]
     });
   });
 });

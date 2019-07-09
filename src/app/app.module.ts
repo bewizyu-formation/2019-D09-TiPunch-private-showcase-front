@@ -15,8 +15,9 @@ import { MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './components/login/login.component';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
 
 @NgModule({
@@ -35,15 +36,17 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
     MatInputModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
-    MatButtonToggleModule
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA
+    MatButtonToggleModule,
+    MatButtonModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },
     { provide: HTTP_INTERCEPTORS, useClass: CommonHeadersInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA
   ],
   bootstrap: [AppComponent]
 })

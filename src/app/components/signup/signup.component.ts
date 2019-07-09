@@ -15,7 +15,6 @@ import { CommuneService } from 'src/app/commune/commune.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  // cities: string[] = ['lyon','paris','marseille','nice','toulouse','lorient','lozanne'];
   filteredCities: Observable<string[]>;
 
   cities: Array<string> = [];
@@ -35,7 +34,9 @@ export class SignupComponent implements OnInit {
   constructor(public fb: FormBuilder, public userService: UserService, public communeService: CommuneService, private http: HttpClient) {
 
 
-    // Creation of controlers
+    /**
+     * Creation of controlers
+    */
     this.loginCtrl = fb.control('', [Validators.required, userNameNotTakenValidator(this.userService)]);
     this.passwordCtrl = fb.control('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,50}$')]);
     this.confirmationPasswordCtrl = fb.control('', [Validators.required, passwordMatchValidator(this.passwordCtrl)]);
@@ -45,7 +46,9 @@ export class SignupComponent implements OnInit {
     this.descriptionCtrl = fb.control('', [Validators.required, Validators.maxLength(250)]);
 
 
-    // Creation of global form group
+    /**
+     * Creation of global form group
+    */
     this.userForm = fb.group({
       login: this.loginCtrl,
       password: this.passwordCtrl,
@@ -56,7 +59,9 @@ export class SignupComponent implements OnInit {
       description: this.descriptionCtrl
     });
 
-    // Creation of no Artist form group
+    /**
+     * Creation of artist form group
+    */
     this.noArtistForm = fb.group({
       login: this.loginCtrl,
       password: this.passwordCtrl,
@@ -76,7 +81,6 @@ export class SignupComponent implements OnInit {
     this.communeService.commune(this.cityCtrl)
       .then(data => {
         this.cities = data;
-        console.log(this.cities);
       });
   }
 
@@ -89,7 +93,6 @@ export class SignupComponent implements OnInit {
         map(value => this._filter(value))
       );
   }
-
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();

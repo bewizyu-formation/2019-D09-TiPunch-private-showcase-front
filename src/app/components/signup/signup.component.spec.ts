@@ -5,7 +5,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatFormFieldModule, MatCheckboxModule, MatInputModule, MatAutocompleteModule, MatButtonToggleModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
 import { APP_CONFIG } from 'src/app/app.config';
 import { environment } from 'src/environments/environment';
 import { CommonHeadersInterceptorService } from 'src/app/services/interceptors/common-headers-interceptor.service';
@@ -18,7 +19,7 @@ describe('SignupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SignupComponent ],
+      declarations: [SignupComponent],
       imports: [
         BrowserModule,
         HttpClientModule,
@@ -31,15 +32,15 @@ describe('SignupComponent', () => {
         MatAutocompleteModule,
         MatButtonToggleModule
       ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         { provide: APP_CONFIG, useValue: environment },
         { provide: HTTP_INTERCEPTORS, useClass: CommonHeadersInterceptorService, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
-      ],
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

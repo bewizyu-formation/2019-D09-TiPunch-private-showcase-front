@@ -11,4 +11,3 @@ export function passwordMatchValidator(password: FormControl) {
         return pass === conf ? null : { matcher: true };
     };
 }
-

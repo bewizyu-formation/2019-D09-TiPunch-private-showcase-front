@@ -44,5 +44,4 @@ export class UserService {
     const json = this.http.get(`http://localhost:8080/users/checkArtistNameNotTaken/${artistName}`);
     return json['artistNameNotTaken'];
   }
-
 }

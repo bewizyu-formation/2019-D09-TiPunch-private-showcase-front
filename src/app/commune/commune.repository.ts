@@ -14,7 +14,8 @@ export class CommuneRepository {
   }
 
   /**
-   * Get the commune list
+   * Get the cities list
+   * @param control input field
    */
   commune(control: FormControl): Observable<any> {
     console.log(control.value);

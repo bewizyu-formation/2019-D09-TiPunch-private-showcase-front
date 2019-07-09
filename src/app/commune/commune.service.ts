@@ -15,6 +15,10 @@ export class CommuneService {
   constructor(private communeRepository: CommuneRepository, private http: HttpClient) {
   }
 
+  /**
+ * Get the cities name list
+ * @param control input field
+ */
   commune(control: FormControl): Promise<Array<string>> {
     return new Promise((resolve) => {
       this.communeRepository
@@ -25,6 +29,4 @@ export class CommuneService {
         });
     });
   }
-
-
 }

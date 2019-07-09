@@ -15,6 +15,7 @@ describe('AppComponent', () => {
       ],
       imports: [
         HttpClientModule,
+
       ],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [
