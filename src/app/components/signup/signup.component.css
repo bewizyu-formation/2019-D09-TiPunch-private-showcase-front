@@ -1,0 +1,157 @@
+/*global cotainer*/
+
+.global-container {
+    margin-top: 64px;
+}
+
+
+/* container of form*/
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    max-width: 682px;
+    border-radius: 14px;
+    background-color: #e7e6e6;
+}
+
+
+/*Common css for following fields :
+-Identifiant
+-mot de passe
+-confirmer mot de passe
+-Email
+-Ville */
+
+.container_bound {
+    width: 396px;
+    height: 48px;
+}
+
+
+/*Css of Signup form title*/
+
+.container_title {
+    width: 213px;
+    height: 28px;
+    margin: 29px 239px 0px 230px;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.4;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+
+/*Login field's css*/
+
+.container_login {
+    margin: 25px 143px 30px 143px;
+}
+
+
+/*Password field's css*/
+
+.container_password {
+    margin: 0px 0 33px;
+}
+
+
+/*ConfirmationPassword field's css*/
+
+.container_confirmationPassword {
+    margin: 0px 0 20px;
+}
+
+
+/*Email field's css*/
+
+.container_email {
+    margin: 0px 0 25px;
+}
+
+
+/*City field's css*/
+
+.container_city {
+    margin: 0px 0 33px;
+}
+
+
+/*Checkbox filed's css*/
+
+.checkbox {
+    margin-bottom: 15px;
+}
+
+.container_checkbox {
+    width: 18px;
+    height: 18px;
+    margin-left: 20px;
+}
+
+.container_checkbox_text {
+    width: 397px;
+    height: 24px;
+}
+
+
+/*Artist field's css*/
+
+.container_artist {
+    width: 396px;
+    height: 48px;
+    margin-bottom: 20px;
+}
+
+
+/*Description field's css*/
+
+.container_description {
+    width: 396.8px;
+    height: 100px;
+}
+
+
+/*Button field */
+
+.container_button {
+    width: 93px;
+    height: 36px;
+}
+
+.container_validadedbutton {
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    margin-right: 17px;
+    background-color: #4a4a4a;
+}
+
+.container_canceledbutton {
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    background-color: #17998c;
+}
+
+.mat-button-toggle-disabled {
+    background-color: #e7f4f3;
+    color: lightgray;
+}
+
+.container_button_paragraph {
+    margin: auto;
+}
+
+.container_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 396px;
+    margin-bottom: 30px;
+}
