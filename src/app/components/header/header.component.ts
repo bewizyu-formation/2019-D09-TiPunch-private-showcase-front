@@ -8,9 +8,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  public title:string;
+  public title: string;
 
-  constructor( private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {

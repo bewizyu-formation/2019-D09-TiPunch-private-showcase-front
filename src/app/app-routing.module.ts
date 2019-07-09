@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule} from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -8,28 +8,28 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeaderSignComponent } from './components/header-sign/header-sign.component';
 
 export const ROUTES: Routes = [
-  { 
-    path:'', 
+  {
+    path: '',
     component: AppComponent,
     children: [
       {
-        path:'',
+        path: '',
         component: HeaderComponent,
         outlet: 'header',
         children: [
           {
-            path:'',
+            path: '',
             component: HeaderSignComponent
           }
         ],
-        data: {title: "Private Showcase"}
+        data: { title: 'Private Showcase' }
       },
       {
-        path:'',
+        path: '',
         component: MainWithBannerComponent,
         children: [
           {
-            path:'',
+            path: '',
             component: WelcomeComponent
           }
         ]
