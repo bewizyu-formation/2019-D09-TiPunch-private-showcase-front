@@ -11,9 +11,9 @@ describe('passwordValidator', () => {
         declarations: [passwordMatchValidator]
       });
     });
-
-    /*it('should validate', () => {
-        expect(passwordValidator(new FormControl('A3'))).toEqual({ 'isGoodPassword': false });
-        expect(passwordValidator(new FormControl('A3zzzzzz'))).toEqual(null);
+/* 
+    it('should validate', () => {
+        expect(passwordMatchValidator(new FormControl('A3'))).toEqual({ 'isGoodPassword': false });
+        expect(passwordMatchValidator(new FormControl('A3zzzzzz'))).toEqual(null);
       });*/
-    })
+    }) 
