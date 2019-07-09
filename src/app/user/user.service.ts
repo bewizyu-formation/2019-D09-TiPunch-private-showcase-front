@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { UserRepository } from './user.repository';
 import { HttpResponse, HttpClient } from '@angular/common/http';
+import { User } from '../models/User';
+import { Artist } from '../models/Artist';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +34,21 @@ export class UserService {
         },
         );
     });
+  }
+
+  signUpUser(user:User){
+    console.log('USER SERVICE SIGNUP');
+    return new Promise((resolve,reject)=>{
+
+      this.userRepository.signUpUser(user)
+        .subscribe((response:HttpResponse<any>)=>{
+          console.log(response.status);
+        })
+    })
+  }
+
+  signUpArtist(artist:Artist){
+    this.userRepository.signUpArtist(artist);
   }
 
 
