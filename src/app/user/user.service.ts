@@ -47,8 +47,8 @@ export class UserService {
       this.userRepository.signUpUser(user)
         .subscribe((response: HttpResponse<any>) => {
           console.log(response.status);
-        })
-    })
+        });
+    });
   }
 
   signUpArtist(artist: Artist) {
@@ -58,8 +58,8 @@ export class UserService {
       this.userRepository.signUpArtist(artist)
         .subscribe((response: HttpResponse<any>) => {
           console.log(response.status);
-        })
-    })
+        });
+    });
   }
 
 
@@ -68,9 +68,9 @@ export class UserService {
       this.userRepository
         .checkUsernameNotTaken(login)
         .subscribe((response) => {
-          let obj = JSON.parse(response.usernameNotTaken)
-          console.log(obj)
-          this.checkLogin = obj
+          const obj = JSON.parse(response.usernameNotTaken);
+          console.log(obj);
+          this.checkLogin = obj;
           resolve(this.checkLogin);
         }, () => {
           reject('Erreur');
@@ -84,9 +84,9 @@ export class UserService {
       this.userRepository
         .checkArtistnameNotTaken(name)
         .subscribe((response) => {
-          let obj = JSON.parse(response.artistNameNotTaken)
-          console.log(obj)
-          this.checkArtistname = obj
+          const obj = JSON.parse(response.artistNameNotTaken);
+          console.log(obj);
+          this.checkArtistname = obj;
           resolve(this.checkArtistname);
         }, () => {
           reject('Erreur');

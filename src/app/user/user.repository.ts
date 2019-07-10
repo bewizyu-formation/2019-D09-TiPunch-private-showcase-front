@@ -7,7 +7,7 @@ import { Artist } from '../models/Artist';
 import { FormControl } from '@angular/forms';
 
 export const RESOURCES_LOGIN = '/login';
-export const RESOURCES_SIGNUP_USER = "/users/";
+export const RESOURCES_SIGNUP_USER = '/users/';
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +32,6 @@ export class UserRepository {
   }
 
   signUpUser(user: User) {
-    console.log("REPO USER");
-    console.log(user);
-    console.log(user.username);
     return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_SIGNUP_USER}`, {
       username: user.username,
       password: user.password,
