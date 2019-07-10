@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ROUTES } from '../../app-routing.module'
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -19,7 +20,7 @@ describe('HeaderComponent', () => {
         BrowserModule,
         HttpClientModule,
         MatButtonModule,
-        RouterModule.forRoot(ROUTES)
+        RouterTestingModule
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
