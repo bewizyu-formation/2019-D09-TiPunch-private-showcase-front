@@ -32,7 +32,8 @@ describe('SignupComponent', () => {
         MatInputModule,
         BrowserAnimationsModule,
         MatAutocompleteModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
+        RouterTestingModule
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
