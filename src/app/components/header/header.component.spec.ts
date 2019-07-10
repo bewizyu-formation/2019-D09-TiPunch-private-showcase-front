@@ -4,9 +4,7 @@ import { HeaderComponent } from './header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material';
-import { RouterModule } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ROUTES } from '../../app-routing.module'
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HeaderComponent', () => {
