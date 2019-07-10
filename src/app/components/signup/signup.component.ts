@@ -33,8 +33,11 @@ export class SignupComponent implements OnInit {
 
   isHidden = true;
 
-  constructor(public fb: FormBuilder, public userService: UserService, public communeService: CommuneService, private http: HttpClient, private route:Router) {
-
+  constructor(public fb: FormBuilder,
+    public userService: UserService,
+    public communeService: CommuneService,
+    private http: HttpClient,
+    private route: Router) {
 
     /**
      * Creation of controlers
@@ -46,7 +49,6 @@ export class SignupComponent implements OnInit {
     this.cityCtrl = fb.control('', [Validators.required]);
     this.artistNameCtrl = fb.control('', [Validators.required]);
     this.descriptionCtrl = fb.control('', [Validators.required, Validators.maxLength(250)]);
-
 
     /**
      * Creation of global form group
@@ -72,7 +74,6 @@ export class SignupComponent implements OnInit {
       city: this.cityCtrl,
 
     });
-
   }
 
   handleClick() {
@@ -102,11 +103,11 @@ export class SignupComponent implements OnInit {
     return this.cities.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  cancel(){
+  cancel() {
     this.route.navigate([PATH_WELCOME]);
   }
 
-  validate(){
+  validate() {
     this.route.navigate([PATH_LOGIN]);
   }
 }

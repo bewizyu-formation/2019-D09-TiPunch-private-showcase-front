@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   error: string;
   isAuth = true;
 
-  constructor(fb: FormBuilder, private service: UserService, private route:Router) {
+  constructor(fb: FormBuilder, private service: UserService, private route: Router) {
     // FormControl creation for Username
     this.loginCtrl = fb.control('', [Validators.required]);
     // FormControl creation for Password

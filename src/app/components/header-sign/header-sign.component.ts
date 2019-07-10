@@ -9,16 +9,16 @@ import { PATH_LOGIN, PATH_SIGNUP } from 'src/app/app-routing.constantes';
 })
 export class HeaderSignComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  goToLogin(){
+  goToLogin() {
     this.router.navigate([PATH_LOGIN]);
   }
 
-  goToSignUp(){
+  goToSignUp() {
     this.router.navigate([PATH_SIGNUP]);
 
   }
