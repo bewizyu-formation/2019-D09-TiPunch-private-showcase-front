@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {EnvironmentService} from '../services/environment.service';
 import { User } from '../models/User';
 import { Artist } from '../models/Artist';
+import { FormControl } from '@angular/forms';
 
 export const RESOURCES_LOGIN = '/login';
 export const RESOURCES_SIGNUP_USER = "/users/";
@@ -58,12 +59,11 @@ export class UserRepository {
   }
 
   checkUsernameNotTaken(login: string): Observable<any> {
-    return this.http.get(`http://localhost:8080/users/checkUsernameNotTaken/${login}`);
- 
+    return this.http.get(`http://localhost:8080/checknottaken/username/${login}`);
   }
 
   checkArtistNameNotTaken(artistName: string): Observable<any> {
-    return this.http.get(`http://localhost:8080/users/checkArtistNameNotTaken/${artistName}`);
+    return this.http.get(`http://localhost:8080/checknottaken/artistname/${artistName}`);
   }
 
   

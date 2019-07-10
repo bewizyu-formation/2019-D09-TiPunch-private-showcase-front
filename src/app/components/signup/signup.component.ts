@@ -39,7 +39,7 @@ export class SignupComponent implements OnInit {
     /**
      * Creation of controlers
     */
-    this.loginCtrl = fb.control('', [Validators.required]);
+    this.loginCtrl = fb.control('', [Validators.required, userNameNotTakenValidator(this.userService)]);
     this.passwordCtrl = fb.control('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,50}$')]);
     this.confirmationPasswordCtrl = fb.control('', [Validators.required, passwordMatchValidator(this.passwordCtrl)]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
@@ -79,7 +79,7 @@ export class SignupComponent implements OnInit {
     this.isHidden = !this.isHidden;
   }
 
-  getCities() {
+  getCities() {  //(change)="getCities()"
     this.communeService.commune(this.cityCtrl)
       .then(data => {
         this.cities = data;

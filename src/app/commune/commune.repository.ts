@@ -19,6 +19,6 @@ export class CommuneRepository {
    */
   commune(control: FormControl): Observable<any> {
     console.log(control.value);
-    return this.http.get(`https://geo.api.gouv.fr/communes?nom=${control.value}`);
+    return this.http.get(`https://geo.api.gouv.fr/communes?nom=${control.value}`);  //${control.value}
   }
 }

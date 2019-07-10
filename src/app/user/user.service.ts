@@ -3,6 +3,7 @@ import { UserRepository } from './user.repository';
 import { HttpResponse, HttpClient } from '@angular/common/http';
 import { User } from '../models/User';
 import { Artist } from '../models/Artist';
+import { FormControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -56,11 +57,16 @@ export class UserService {
 
   checkUsernameNotTaken(login: string): Promise<any> {
     return new Promise((resolve, reject) => {
+      console.log("test service 1")
       this.userRepository
         .checkUsernameNotTaken(login)
-        .subscribe((response: HttpResponse<any>) => {
-          console.log(response.status);
-          this.checkLogin = response['usernameNotTaken'];
+        .subscribe((response/* : HttpResponse<any> */) => {
+          console.log("test service 2")
+          let obj = JSON.parse(response.usernameNotTaken)
+          console.log(obj)
+          this.checkLogin = obj
+          //this.checkLogin = response.usernameNotTaken //response['usernameNotTaken'];
+          console.log(response.usernameNotTaken)
           resolve(this.checkLogin);
         }, () => {
           reject('Erreur');
