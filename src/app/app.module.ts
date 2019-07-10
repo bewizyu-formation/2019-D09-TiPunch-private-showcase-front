@@ -29,6 +29,8 @@ import { HeaderReturnButtonComponent } from './components/header-return-button/h
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu'; 
+import { UserMenuComponent } from './components/user-menu/user-menu.component';
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     HeaderReturnComponent,
     HeaderReturnButtonComponent,
     WelcomeComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    UserMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatButtonToggleModule,
     MatButtonModule,
     MatToolbarModule,
+    MatMenuModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
