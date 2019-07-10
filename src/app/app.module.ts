@@ -26,6 +26,7 @@ import { HeaderSignComponent } from './components/header-sign/header-sign.compon
 import { BannerComponent } from './components/banner/banner.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderReturnComponent } from './components/header-return/header-return.component';
+import { HeaderReturnButtonComponent } from './components/header-return-button/header-return-button.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { HeaderReturnComponent } from './components/header-return/header-return.
     BannerComponent,
     HomeComponent,
     HeaderReturnComponent,
+    HeaderReturnButtonComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,9 @@ export class HeaderComponent implements OnInit {
   @Input()
   right:boolean;
 
+  @Input()
+  returnButton:boolean;
+
   constructor() { }
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 .header {
     background-color: #4a4a4a;
-    padding: 13px 22px 15px 22px;
+    padding: 13px 0 15px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
     position: fixed;
     left: 0;
@@ -21,11 +21,4 @@
     line-height: 0.89;
     margin: 0;
     font-family: Roboto;
-}
-
-.header_left {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    left: 22px;
 }
