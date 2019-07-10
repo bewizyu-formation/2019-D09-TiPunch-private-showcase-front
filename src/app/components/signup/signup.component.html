@@ -1,3 +1,6 @@
+<app-header [returnButton]=true></app-header>
+<app-banner></app-banner>
+
 <div class="global-container">
 
 
@@ -112,11 +115,15 @@
         </div>
 
         <div class="container_buttons">
-            <mat-button-toggle type="submit" class="container_validadedbutton container_button">
+            <mat-button-toggle (click)="cancel()" class="container_validadedbutton container_button">
                 <p class="container_button_paragraph">Annuler</p>
             </mat-button-toggle>
+<<<<<<< HEAD
             <mat-button-toggle (click)="submit()" class="container_canceledbutton container_button"
                 [disabled]="isHidden? noArtistForm.invalid : userForm.invalid ">
+=======
+            <mat-button-toggle (click)="validate()" class="container_canceledbutton container_button" [disabled]="isHidden? noArtistForm.invalid : userForm.invalid ">
+>>>>>>> 509c224fda66c1c6f1edb2a143607d273ffeb701
                 <p class="container_button_paragraph">Valider</p>
             </mat-button-toggle>
         </div>

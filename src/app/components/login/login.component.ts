@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user/user.service';
+import { Router } from '@angular/router';
+import { PATH_WELCOME, PATH_HOME } from 'src/app/app-routing.constantes';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
   error: string;
   isAuth = true;
 
-  constructor(fb: FormBuilder, private service: UserService) {
+  constructor(fb: FormBuilder, private service: UserService, private route: Router) {
     // FormControl creation for Username
     this.loginCtrl = fb.control('', [Validators.required]);
     // FormControl creation for Password
@@ -44,6 +46,7 @@ export class LoginComponent implements OnInit {
           this.isAuth = !this.isAuth;
         }
         // Redirection to homePage
+        this.route.navigate([PATH_HOME]);
       })
       .catch(e => {
         console.log('User unknown', e);
@@ -56,7 +59,7 @@ export class LoginComponent implements OnInit {
    * User return to welcome page
    */
   return() {
-
+    this.route.navigate([PATH_WELCOME]);
   }
 
   ngOnInit() {

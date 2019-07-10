@@ -10,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 import { CommuneService } from 'src/app/commune/commune.service';
 import { User } from 'src/app/models/User';
 import { Artist } from 'src/app/models/Artist';
+import { Router } from '@angular/router';
+import { PATH_WELCOME, PATH_LOGIN } from 'src/app/app-routing.constantes';
 
 @Component({
   selector: 'app-signup',
@@ -36,8 +38,11 @@ export class SignupComponent implements OnInit {
   errorArtistnameTaken = false;
   errorMessage = "L'identifiant choisi n'est pas disponible";
 
-  constructor(public fb: FormBuilder, public userService: UserService, public communeService: CommuneService) {
-
+  constructor(public fb: FormBuilder,
+    public userService: UserService,
+    public communeService: CommuneService,
+    private http: HttpClient,
+    private route: Router) {
 
     /**
      * Creation of controlers
@@ -74,7 +79,6 @@ export class SignupComponent implements OnInit {
       city: this.cityCtrl,
 
     });
-
   }
 
   handleClick() {
@@ -121,6 +125,7 @@ export class SignupComponent implements OnInit {
             // Only User
             const user = new User(this.loginCtrl.value, this.passwordCtrl.value, this.emailCtrl.value, this.cityCtrl.value, roles);
             this.userService.signUpUser(user);
+            this.route.navigate([PATH_LOGIN]);
           }
           else {
             this.userService.checkArtistnameNotTaken(this.artistNameCtrl.value)
@@ -132,6 +137,7 @@ export class SignupComponent implements OnInit {
                   this.errorArtistnameTaken = false;
                   const artist = new Artist(this.loginCtrl.value, this.passwordCtrl.value, this.emailCtrl.value, this.cityCtrl.value, this.artistNameCtrl.value, this.descriptionCtrl.value, roles);
                   this.userService.signUpArtist(artist);
+                  this.route.navigate([PATH_LOGIN]);
                 }
                 else {
                   console.log("nom d'artiste non dispo");
@@ -167,6 +173,14 @@ export class SignupComponent implements OnInit {
        }
  
      } else {console.log("le login existe deja");}*/
+    }
+
+  cancel() {
+    this.route.navigate([PATH_WELCOME]);
+  }
+
+  validate() {
+    this.route.navigate([PATH_LOGIN]);
 
   }
 }
