@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button'
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { PATH_WELCOME } from 'src/app/app-routing.constantes';
 
 @Component({
@@ -10,12 +9,12 @@ import { PATH_WELCOME } from 'src/app/app-routing.constantes';
 })
 export class HeaderReturnButtonComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
   }
 
-  return(){
+  return() {
     this.route.navigate([PATH_WELCOME]);
   }
 

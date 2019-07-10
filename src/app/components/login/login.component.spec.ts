@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 import { TokenInterceptorService } from 'src/app/services/interceptors/token-interceptor.service';
 import { CommonHeadersInterceptorService } from 'src/app/services/interceptors/common-headers-interceptor.service';
 import { ErrorInterceptorService } from 'src/app/services/interceptors/error-interceptor.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -20,6 +21,7 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
       imports: [
+        RouterTestingModule,
         BrowserModule,
         HttpClientModule,
         MatFormFieldModule,

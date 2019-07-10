@@ -21,12 +21,12 @@ import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { ROUTES } from './app-routing.module';
-import { WelcomeComponent } from './components/welcome/welcome.component';
 import { HeaderSignComponent } from './components/header-sign/header-sign.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderReturnComponent } from './components/header-return/header-return.component';
 import { HeaderReturnButtonComponent } from './components/header-return-button/header-return-button.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 
 @NgModule({
@@ -35,12 +35,12 @@ import { HeaderReturnButtonComponent } from './components/header-return-button/h
     SignupComponent,
     LoginComponent,
     HeaderComponent,
-    WelcomeComponent,
     HeaderSignComponent,
     BannerComponent,
     HomeComponent,
     HeaderReturnComponent,
     HeaderReturnButtonComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

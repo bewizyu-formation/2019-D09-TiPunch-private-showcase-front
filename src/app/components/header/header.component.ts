@@ -9,17 +9,14 @@ import { ActivatedRoute } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   @Input()
-  right:boolean;
+  right: boolean;
 
   @Input()
-  returnButton:boolean;
+  returnButton: boolean;
 
   constructor() { }
 
   ngOnInit() {
 
   }
-
-
-
 }
