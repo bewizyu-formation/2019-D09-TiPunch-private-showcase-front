@@ -1,0 +1,21 @@
+<button mat-icon-button class="side-menu_button" (click)="onClick()">
+  <i *ngIf="!open" class="material-icons">menu</i>
+  <i *ngIf="open" class="material-icons">close</i>
+</button>
+
+<mat-toolbar *ngIf="open" class="side-menu_toolbar">
+  <mat-toolbar-row>
+    <i  class="material-icons">move_to_inbox</i>
+    Accueil
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <i class="material-icons">send</i>
+    Evenements
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <i class="material-icons">group</i>
+    Contact
+  </mat-toolbar-row>
+</mat-toolbar>
+
+

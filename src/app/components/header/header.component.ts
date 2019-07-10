@@ -9,10 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   @Input()
-  right: boolean;
+  title: string = "Private ShowCase";
 
   @Input()
-  returnButton: boolean;
+  right: boolean = false;
+
+  @Input()
+  returnButton: boolean = false;
+
+  @Input()
+  sideMenu: boolean = false;
 
   constructor() { }
 

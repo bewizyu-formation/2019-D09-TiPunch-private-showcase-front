@@ -2,8 +2,12 @@
   <div *ngIf="returnButton">
     <app-header-return-button></app-header-return-button>
   </div>
+  <div *ngIf="sideMenu">
+    <app-side-menu></app-side-menu>
+  </div>
+
   <p class="header_title">
-    Private ShowCase
+    {{title}}
   </p>
   <div *ngIf="right">
     <app-header-sign></app-header-sign>
