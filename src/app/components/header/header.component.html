@@ -1,10 +1,11 @@
 <header class="header">
-  <div class="header_left">
-
+  <div *ngIf="returnButton">
+    <app-header-return-button></app-header-return-button>
   </div>
   <p class="header_title">
     Private ShowCase
   </p>
-
-  <app-header-sign [hidden]="!right"></app-header-sign>
+  <div *ngIf="right">
+    <app-header-sign></app-header-sign>
+  </div>
 </header>
