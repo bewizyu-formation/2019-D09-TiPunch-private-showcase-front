@@ -20,6 +20,9 @@ export class HeaderComponent implements OnInit {
   @Input()
   sideMenu: boolean = false;
 
+  @Input()
+  home:boolean = false;
+
   constructor() { }
 
   ngOnInit() {
