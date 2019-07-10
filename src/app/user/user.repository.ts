@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {EnvironmentService} from '../services/environment.service';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { EnvironmentService } from '../services/environment.service';
 import { User } from '../models/User';
 import { Artist } from '../models/Artist';
 import { FormControl } from '@angular/forms';
@@ -27,27 +27,27 @@ export class UserRepository {
       username,
       password,
     },
-      {observe: 'response'}
+      { observe: 'response' }
     );
   }
 
-  signUpUser(user:User){
+  signUpUser(user: User) {
     console.log("REPO USER");
     console.log(user);
     console.log(user.username);
-    return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_SIGNUP_USER}`,{
+    return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_SIGNUP_USER}`, {
       username: user.username,
       password: user.password,
       email: user.email,
       city: user.city,
-      roles: user.roles    
-    },{
-      observe: 'response'
-    });
+      roles: user.roles
+    }, {
+        observe: 'response'
+      });
   }
 
-  signUpArtist(artist:Artist){
-    return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}/artists/`,{
+  signUpArtist(artist: Artist) {
+    return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}/artists/`, {
       username: artist.username,
       password: artist.password,
       email: artist.email,
@@ -55,16 +55,18 @@ export class UserRepository {
       name: artist.name,
       description: artist.description,
       roles: artist.roles
-    });
+    }, {
+        observe: 'response'
+      });
   }
 
-  checkUsernameNotTaken(login: string): Observable<any> {
+  checkUsernameNotTaken(login: FormControl): Observable<any> {
     return this.http.get(`http://localhost:8080/checknottaken/username/${login}`);
   }
 
-  checkArtistNameNotTaken(artistName: string): Observable<any> {
+  checkArtistnameNotTaken(artistName: FormControl): Observable<any> {
     return this.http.get(`http://localhost:8080/checknottaken/artistname/${artistName}`);
   }
 
-  
+
 }

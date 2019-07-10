@@ -17,6 +17,7 @@ export class UserService {
   public token: string;
 
   private checkLogin: boolean;
+  private checkArtistname: boolean;
 
   constructor(private userRepository: UserRepository, private http: HttpClient) {
   }
@@ -39,23 +40,30 @@ export class UserService {
     });
   }
 
-  signUpUser(user:User){
+  signUpUser(user: User) {
     console.log('USER SERVICE SIGNUP');
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve, reject) => {
 
       this.userRepository.signUpUser(user)
-        .subscribe((response:HttpResponse<any>)=>{
+        .subscribe((response: HttpResponse<any>) => {
           console.log(response.status);
         })
     })
   }
 
-  signUpArtist(artist:Artist){
-    this.userRepository.signUpArtist(artist);
+  signUpArtist(artist: Artist) {
+    console.log('ARTIST SERVICE SIGNUP');
+    return new Promise((resolve, reject) => {
+
+      this.userRepository.signUpArtist(artist)
+        .subscribe((response: HttpResponse<any>) => {
+          console.log(response.status);
+        })
+    })
   }
 
 
-  checkUsernameNotTaken(login: string): Promise<any> {
+  checkUsernameNotTaken(login: FormControl): Promise<any> {
     return new Promise((resolve, reject) => {
       this.userRepository
         .checkUsernameNotTaken(login)
@@ -71,8 +79,19 @@ export class UserService {
     });
   }
 
-  checkArtistNameNotTaken(artistName: string): boolean {
-    const json = this.http.get(`http://localhost:8080/users/checkArtistNameNotTaken/${artistName}`);
-    return json['artistNameNotTaken'];
+  checkArtistnameNotTaken(name: FormControl): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.userRepository
+        .checkArtistnameNotTaken(name)
+        .subscribe((response) => {
+          let obj = JSON.parse(response.artistNameNotTaken)
+          console.log(obj)
+          this.checkArtistname = obj
+          resolve(this.checkArtistname);
+        }, () => {
+          reject('Erreur');
+        },
+        );
+    });
   }
 }

@@ -3,8 +3,11 @@ import { FormControl } from '@angular/forms';
 
 
 
-export function ArtistNameNotTakenValidator(userService: UserService) {
+let checkArtistname:boolean;
+export function artistNameNotTakenValidator(userService: UserService) {
   return function (control: FormControl) {
-    return userService.checkArtistNameNotTaken(control.value) ? null : { artistNameTaken: true };
+    userService.checkArtistnameNotTaken(control.value).then((item)=>{checkArtistname = item})
+    .catch(e=>{console.log(e)});
+    return checkArtistname ? null : { artistnameTaken: true };
   };
 }
