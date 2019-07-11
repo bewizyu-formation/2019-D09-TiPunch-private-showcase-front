@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PATH_HOME } from 'src/app/app-routing.constantes';
 
 @Component({
   selector: 'app-header',
@@ -26,6 +27,5 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
   }
 }
