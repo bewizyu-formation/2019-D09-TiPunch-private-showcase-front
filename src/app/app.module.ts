@@ -16,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
@@ -27,6 +27,14 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderReturnComponent } from './components/header-return/header-return.component';
 import { HeaderReturnButtonComponent } from './components/header-return-button/header-return-button.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { UserMenuComponent } from './components/user-menu/user-menu.component';
+import { EventComponent } from './components/event/event.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ProfilComponent } from './components/profil/profil.component';
+import { ArtistComponent } from './components/artist/artist.component';
 
 
 @NgModule({
@@ -40,7 +48,13 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     HomeComponent,
     HeaderReturnComponent,
     HeaderReturnButtonComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    SideMenuComponent,
+    UserMenuComponent,
+    EventComponent,
+    ContactComponent,
+    ProfilComponent,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +68,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     MatAutocompleteModule,
     MatButtonToggleModule,
     MatButtonModule,
+    MatToolbarModule,
+    MatMenuModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
