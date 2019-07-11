@@ -1,1 +1,9 @@
 <app-header [title]="title"></app-header>
+
+
+
+
+
+<div *ngIf="isNotLoaded">
+    <app-loader></app-loader>
+</div>

@@ -9,6 +9,8 @@ export class HomeComponent implements OnInit {
 
   title = 'Artistes dans votre departement';
 
+  isNotLoaded = true;
+
   constructor() { }
 
   ngOnInit() {
