@@ -1,0 +1,9 @@
+.user-menu{
+    position: absolute;
+    right: 24px;
+}
+
+#beforeMenu{
+    position: absolute;
+    top: 500px;
+}

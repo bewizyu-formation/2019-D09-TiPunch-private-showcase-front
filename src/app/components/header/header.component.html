@@ -9,6 +9,9 @@
   <p class="header_title">
     {{title}}
   </p>
+  <div *ngIf="sideMenu">
+    <app-user-menu></app-user-menu>
+  </div>
   <div *ngIf="right">
     <app-header-sign></app-header-sign>
   </div>
