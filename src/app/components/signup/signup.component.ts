@@ -90,8 +90,6 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCities();
-
     this.filteredCities = this.cityCtrl.valueChanges
       .pipe(
         startWith(''),
@@ -101,7 +99,7 @@ export class SignupComponent implements OnInit {
   // Filter for cities autocomplete
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-
+    this.getCities();
     return this.cities.filter(option => option.toLowerCase().includes(filterValue));
   }
 
