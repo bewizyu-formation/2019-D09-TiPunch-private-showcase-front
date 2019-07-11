@@ -22,3 +22,7 @@
     margin: 0;
     font-family: Roboto;
 }
+
+.header_margin {
+    height: 64px;
+}

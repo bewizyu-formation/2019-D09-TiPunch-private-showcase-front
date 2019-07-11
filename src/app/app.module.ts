@@ -11,7 +11,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatListModule, MatGridListModule, MatIconModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -59,6 +59,8 @@ import { ArtistComponent } from './components/artist/artist.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatListModule,
+    MatIconModule,
     MatFormFieldModule,
     MatCheckboxModule,
     FormsModule,
