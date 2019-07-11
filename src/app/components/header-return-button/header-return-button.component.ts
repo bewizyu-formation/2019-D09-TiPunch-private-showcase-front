@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { PATH_WELCOME } from 'src/app/app-routing.constantes';
+import { Router, ActivatedRoute } from '@angular/router';
+import { PATH_WELCOME, PATH_SIGNUP, PATH_LOGIN, PATH_HOME } from 'src/app/app-routing.constantes';
 
 @Component({
   selector: 'app-header-return-button',
@@ -9,13 +9,31 @@ import { PATH_WELCOME } from 'src/app/app-routing.constantes';
 })
 export class HeaderReturnButtonComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  location: string;
+
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.location = this.route.routeConfig.path;
   }
 
+  isSignUp(){
+    return this.location.includes(PATH_SIGNUP);
+  }
+
+  isLogin(){
+    return this.location.includes(PATH_LOGIN);
+  }
+
+
+
   return() {
-    this.route.navigate([PATH_WELCOME]);
+    if(this.isSignUp() || this.isLogin()){
+      this.router.navigate([PATH_WELCOME]);
+    }
+    else{
+      this.router.navigate([PATH_HOME]);
+    }
   }
 
 }

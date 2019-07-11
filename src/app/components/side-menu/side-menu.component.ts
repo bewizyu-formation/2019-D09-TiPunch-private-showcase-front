@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
-import { PATH_HOME } from 'src/app/app-routing.constantes';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { PATH_HOME, PATH_EVENT, PATH_CONTACT } from 'src/app/app-routing.constantes';
 
 @Component({
   selector: 'app-side-menu',
@@ -9,24 +9,42 @@ import { PATH_HOME } from 'src/app/app-routing.constantes';
 })
 export class SideMenuComponent implements OnInit {
 
-  @Input()
-  home:boolean = false;
-
-  @Input()
-  event:boolean = false;
-
-  @Input()
-  contact:boolean = false;
+  location: string;
 
   open = false;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.location = this.route.routeConfig.path;
   }
 
   onClick(){
     this.open = !this.open;
+  }
+
+  isHome(){
+    return this.location.includes(PATH_HOME);
+  }
+
+  isEvent(){
+    return this.location.includes(PATH_EVENT);
+  }
+
+  isContact(){
+    return this.location.includes(PATH_CONTACT);
+  }
+
+  goToHome(){
+    this.router.navigate([PATH_HOME]);
+  }
+
+  goToEvents(){
+    this.router.navigate([PATH_EVENT]);
+  }
+
+  goToContacts(){
+    this.router.navigate([PATH_CONTACT]);
   }
 
 }

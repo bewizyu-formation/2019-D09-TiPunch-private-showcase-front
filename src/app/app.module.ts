@@ -31,6 +31,10 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu'; 
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
+import { EventComponent } from './components/event/event.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ProfilComponent } from './components/profil/profil.component';
+import { ArtistComponent } from './components/artist/artist.component';
 
 
 @NgModule({
@@ -46,7 +50,11 @@ import { UserMenuComponent } from './components/user-menu/user-menu.component';
     HeaderReturnButtonComponent,
     WelcomeComponent,
     SideMenuComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    EventComponent,
+    ContactComponent,
+    ProfilComponent,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,

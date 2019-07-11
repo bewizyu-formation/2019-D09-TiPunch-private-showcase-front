@@ -2,16 +2,16 @@
   <button mat-icon-button [matMenuTriggerFor]="beforeMenu">
     <i class="material-icons">more_vert</i>
   </button>
-  <mat-menu #beforeMenu="matMenu" xPosition="before" yPosition="below">
-    <button mat-menu-item>
+  <mat-menu #beforeMenu="matMenu" xPosition="before" yPosition="below" [overlapTrigger]="false">
+    <button mat-menu-item (click)="goToArtistProfil()">
       <i class="material-icons">music_note</i>
       Artistes
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="goToProfilUser()">
       <i class="material-icons">settings</i>
       Profil
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="logout()">
       <i class="material-icons">exit_to_app</i>
       Déconnexion
     </button>

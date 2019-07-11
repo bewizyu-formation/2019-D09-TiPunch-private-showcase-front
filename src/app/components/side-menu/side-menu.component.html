@@ -5,19 +5,19 @@
 
 <mat-toolbar *ngIf="open" class="side-menu_toolbar">
   <mat-toolbar-row class="side-menu_toolbar-row">
-    <button mat-button class="side-menu_toolbar_button" [ngClass]="{'side-menu_toolbar_button-squash': home}">
+    <button mat-button class="side-menu_toolbar_button" [ngClass]="{'side-menu_toolbar_button-squash': isHome()}" (click)="goToHome()">
       <i class="material-icons">move_to_inbox</i>
       <p class="side-menu_toolbar_text">Accueil</p>
     </button>
   </mat-toolbar-row>
   <mat-toolbar-row class="side-menu_toolbar-row">
-    <button mat-button class="side-menu_toolbar_button" [ngClass]="{'side-menu_toolbar_button-squash': event}">
+    <button mat-button class="side-menu_toolbar_button" [ngClass]="{'side-menu_toolbar_button-squash': isEvent()}" (click)="goToEvents()">
       <i class="material-icons">send</i>
       <p class="side-menu_toolbar_text">Évènements</p>
     </button>
   </mat-toolbar-row>
   <mat-toolbar-row class="side-menu_toolbar-row">
-    <button mat-button class="side-menu_toolbar_button" [ngClass]="{'side-menu_toolbar_button-squash': contact}">
+    <button mat-button class="side-menu_toolbar_button" [ngClass]="{'side-menu_toolbar_button-squash': isContact()}" (click)="goToContacts()">
       <i class="material-icons">group</i>
       <p class="side-menu_toolbar_text">Contact</p>
     </button>
