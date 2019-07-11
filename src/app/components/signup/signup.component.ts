@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { passwordMatchValidator } from 'src/app/validators/password.validator';
 import { Observable } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
-import { userNameNotTakenValidator } from 'src/app/validators/unique.login.validator';
+import { startWith, map, ignoreElements } from 'rxjs/operators';
 import { UserService } from 'src/app/user/user.service';
-import { ArtistNameNotTakenValidator } from 'src/app/validators/unique.artistName.validator';
 import { HttpClient } from '@angular/common/http';
 import { CommuneService } from 'src/app/commune/commune.service';
+import { User } from 'src/app/models/User';
+import { Artist } from 'src/app/models/Artist';
+import { Router } from '@angular/router';
+import { PATH_WELCOME, PATH_LOGIN } from 'src/app/app-routing.constantes';
 
 @Component({
   selector: 'app-signup',
@@ -30,21 +32,25 @@ export class SignupComponent implements OnInit {
   noArtistForm: FormGroup;
 
   isHidden = true;
+  errorLoginTaken = false;
+  errorArtistnameTaken = false;
 
-  constructor(public fb: FormBuilder, public userService: UserService, public communeService: CommuneService, private http: HttpClient) {
-
+  constructor(public fb: FormBuilder,
+    public userService: UserService,
+    public communeService: CommuneService,
+    private http: HttpClient,
+    private route: Router) {
 
     /**
      * Creation of controlers
     */
-    this.loginCtrl = fb.control('', [Validators.required, userNameNotTakenValidator(this.userService)]);
+    this.loginCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,50}$')]);
     this.confirmationPasswordCtrl = fb.control('', [Validators.required, passwordMatchValidator(this.passwordCtrl)]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.cityCtrl = fb.control('', [Validators.required]);
-    this.artistNameCtrl = fb.control('', [Validators.required, ArtistNameNotTakenValidator(this.userService)]);
-    this.descriptionCtrl = fb.control('', [Validators.required, Validators.maxLength(250)]);
-
+    this.artistNameCtrl = fb.control('', [Validators.required]);
+    this.descriptionCtrl = fb.control('', [Validators.required, Validators.minLength(20), Validators.maxLength(250)]);
 
     /**
      * Creation of global form group
@@ -70,7 +76,6 @@ export class SignupComponent implements OnInit {
       city: this.cityCtrl,
 
     });
-
   }
 
   handleClick() {
@@ -93,10 +98,71 @@ export class SignupComponent implements OnInit {
         map(value => this._filter(value))
       );
   }
-
+  // Filter for cities autocomplete
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
     return this.cities.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  submit() {
+    let checkLogin: boolean;
+    let checkArtistname: boolean;
+    this.userService.checkUsernameNotTaken(this.loginCtrl.value)
+      .then((item) => {
+        checkLogin = item;
+        if (checkLogin) {
+          console.log('Identifiant dispo');
+          const roles = ['ROLE_USER'];
+          if (this.isHidden) {
+            this.errorLoginTaken = false;
+            // Only User
+            const user = new User(this.loginCtrl.value, this.passwordCtrl.value, this.emailCtrl.value, this.cityCtrl.value, roles);
+            this.userService.signUpUser(user);
+            this.route.navigate([PATH_LOGIN]);
+          } else {
+            this.errorLoginTaken = false;
+            this.userService.checkArtistnameNotTaken(this.artistNameCtrl.value)
+              .then((data) => {
+                checkArtistname = data;
+                if (checkArtistname) {
+                  console.log('nom d artiste dispo');
+                  // Artist
+                  this.errorArtistnameTaken = false;
+                  const artist = new Artist(
+                    this.loginCtrl.value,
+                    this.passwordCtrl.value,
+                    this.emailCtrl.value,
+                    this.cityCtrl.value,
+                    this.artistNameCtrl.value,
+                    this.descriptionCtrl.value,
+                    roles);
+                  this.userService.signUpArtist(artist);
+                  this.route.navigate([PATH_LOGIN]);
+                } else {
+                  console.log('nom d artiste non dispo');
+                  this.errorArtistnameTaken = true;
+                  console.log('error artistName Taken ' + this.errorArtistnameTaken);
+                }
+              });
+          }
+        } else {
+          console.log('Identifiant non dispo');
+          this.errorLoginTaken = true;
+          console.log('error Login Taken ' + this.errorLoginTaken);
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
+  cancel() {
+    this.route.navigate([PATH_WELCOME]);
+  }
+
+  validate() {
+    this.route.navigate([PATH_LOGIN]);
+
   }
 }

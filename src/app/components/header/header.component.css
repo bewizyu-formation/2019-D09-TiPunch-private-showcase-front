@@ -1,0 +1,24 @@
+.header {
+    background-color: #4a4a4a;
+    padding: 13px 0 15px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 64px;
+    color: #ffffff;
+    z-index: 1;
+}
+
+.header_title {
+    position: absolute;
+    right: 0;
+    left: 0;
+    font-size: 36px;
+    height: 32px;
+    text-align: center;
+    line-height: 0.89;
+    margin: 0;
+    font-family: Roboto;
+}

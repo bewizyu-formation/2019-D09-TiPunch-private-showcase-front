@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 import { CommonHeadersInterceptorService } from 'src/app/services/interceptors/common-headers-interceptor.service';
 import { TokenInterceptorService } from 'src/app/services/interceptors/token-interceptor.service';
 import { ErrorInterceptorService } from 'src/app/services/interceptors/error-interceptor.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('SignupComponent', () => {
   let component: SignupComponent;
@@ -21,6 +22,7 @@ describe('SignupComponent', () => {
     TestBed.configureTestingModule({
       declarations: [SignupComponent],
       imports: [
+        RouterTestingModule,
         BrowserModule,
         HttpClientModule,
         MatFormFieldModule,
@@ -30,7 +32,8 @@ describe('SignupComponent', () => {
         MatInputModule,
         BrowserAnimationsModule,
         MatAutocompleteModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
+        RouterTestingModule
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [

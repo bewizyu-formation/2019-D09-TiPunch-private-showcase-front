@@ -1,3 +1,5 @@
+<app-header [right]=false [returnButton]=true></app-header>
+<app-banner></app-banner>
 <div class="container">
 
   <p class="container_title">Formulaire de connexion</p>
@@ -18,7 +20,7 @@
     <!--Conteneur Password-->
     <div class="container_password">
       <mat-form-field class="container_bound">
-        <input formControlName="password" matInput placeholder="Mot de passe">
+        <input type="password" formControlName="password" matInput placeholder="Mot de passe">
         <mat-error *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">
           Le champ mot de passe est obligatoire
         </mat-error>
