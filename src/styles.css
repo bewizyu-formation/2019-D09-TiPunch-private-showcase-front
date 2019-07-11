@@ -9,3 +9,5 @@ body {
     background-color: #9B9B9B;
     margin: 0;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
