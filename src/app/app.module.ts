@@ -27,6 +27,8 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderReturnComponent } from './components/header-return/header-return.component';
 import { HeaderReturnButtonComponent } from './components/header-return-button/header-return-button.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ArtistsComponent } from './components/artists/artists.component';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     HomeComponent,
     HeaderReturnComponent,
     HeaderReturnButtonComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ArtistsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     MatAutocompleteModule,
     MatButtonToggleModule,
     MatButtonModule,
+    MatGridListModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [

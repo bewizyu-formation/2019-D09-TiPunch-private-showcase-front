@@ -1,0 +1,77 @@
+.container {
+    max-width: 1092px;
+    margin: 61px auto;
+}
+
+.mat-grid-tile {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    margin: 0px;
+    height: 32px;
+}
+
+.mat-grid-tile .mat-grid-tile-footer {
+    display: block;
+    height: 140px;
+    padding: 26px 16px 0;
+    background-color: rgba(66, 66, 66, 0.9);
+}
+
+img {
+    width: 17.1px;
+    height: 16.3px;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 30px;
+    margin-bottom: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.stars {
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    margin: 0;
+}
+
+.mat-grid-tile .mat-grid-tile-footer>* {
+    margin-bottom: 30px;
+}
+
+.eye {
+    width: 21px;
+    height: 15px;
+    margin-right: 3px;
+    object-fit: contain;
+}
+
+.calendar {
+    width: 16px;
+    height: 18px;
+    margin-right: 3px;
+    object-fit: contain;
+    cursor: context-menu;
+}
+
+img[_ngcontent-c1] {
+    margin-right: 5px;
+}
+
+.etoiles {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
