@@ -27,6 +27,8 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderReturnComponent } from './components/header-return/header-return.component';
 import { HeaderReturnButtonComponent } from './components/header-return-button/header-return-button.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     HomeComponent,
     HeaderReturnComponent,
     HeaderReturnButtonComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     MatAutocompleteModule,
     MatButtonToggleModule,
     MatButtonModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    MatProgressSpinnerModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },

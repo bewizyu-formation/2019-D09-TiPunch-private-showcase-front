@@ -1,0 +1,36 @@
+/* .example-h2 {
+    margin: 10px;
+  }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  } */
+
+  .container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin:auto;
+    max-width: 682px;
+    border-radius: 14px;
+    background-color: none;
+    margin-top: 64px;
+    margin-bottom: 16px;
+    padding: 28px, 0px;
+}
+
+.image{
+    position: absolute;
+    top:200px;
+    height: 100px;
+    width:200px;
+}
