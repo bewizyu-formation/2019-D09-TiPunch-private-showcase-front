@@ -158,9 +158,4 @@ export class SignupComponent implements OnInit {
   cancel() {
     this.route.navigate([PATH_WELCOME]);
   }
-
-  validate() {
-    this.route.navigate([PATH_LOGIN]);
-
-  }
 }
