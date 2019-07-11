@@ -1,0 +1,42 @@
+.side-menu_button {
+    position: absolute;
+    z-index: 2;
+    left: 16px;
+    top: 11px;
+}
+
+.side-menu_icon_button {
+    margin: auto;
+}
+
+.side-menu_toolbar {
+    position: absolute;
+    left: 0;
+    top: 62px;
+    width: 320px;
+    padding: 3px 0;
+}
+
+.side-menu_toolbar-row {
+    padding: 0;
+}
+
+.side-menu_toolbar_button {
+    width: 100%;
+    padding-left: 24px;
+    text-align: left;
+    height: 100%;
+}
+
+.side-menu_toolbar_text {
+    margin: 0;
+    display: inline-block;
+    margin-left: 32px;
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.71;
+}
+
+.side-menu_toolbar_button-squash{
+    color: #f5a623;
+}

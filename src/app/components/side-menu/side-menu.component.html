@@ -1,21 +1,25 @@
 <button mat-icon-button class="side-menu_button" (click)="onClick()">
-  <i *ngIf="!open" class="material-icons">menu</i>
-  <i *ngIf="open" class="material-icons">close</i>
+  <i *ngIf="!open" class="side-menu_icon_button material-icons">menu</i>
+  <i *ngIf="open" class="side-menu_icon_button material-icons">close</i>
 </button>
 
 <mat-toolbar *ngIf="open" class="side-menu_toolbar">
-  <mat-toolbar-row>
-    <i  class="material-icons">move_to_inbox</i>
-    Accueil
+  <mat-toolbar-row class="side-menu_toolbar-row">
+    <button mat-button class="side-menu_toolbar_button" [ngClass]="{'side-menu_toolbar_button-squash': home}">
+      <i class="material-icons">move_to_inbox</i>
+      <p class="side-menu_toolbar_text">Accueil</p>
+    </button>
   </mat-toolbar-row>
-  <mat-toolbar-row>
-    <i class="material-icons">send</i>
-    Evenements
+  <mat-toolbar-row class="side-menu_toolbar-row">
+    <button mat-button class="side-menu_toolbar_button" [ngClass]="{'side-menu_toolbar_button-squash': event}">
+      <i class="material-icons">send</i>
+      <p class="side-menu_toolbar_text">Évènements</p>
+    </button>
   </mat-toolbar-row>
-  <mat-toolbar-row>
-    <i class="material-icons">group</i>
-    Contact
+  <mat-toolbar-row class="side-menu_toolbar-row">
+    <button mat-button class="side-menu_toolbar_button" [ngClass]="{'side-menu_toolbar_button-squash': contact}">
+      <i class="material-icons">group</i>
+      <p class="side-menu_toolbar_text">Contact</p>
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
-
-

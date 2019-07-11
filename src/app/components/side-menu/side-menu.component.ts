@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { PATH_HOME } from 'src/app/app-routing.constantes';
 
 @Component({
   selector: 'app-side-menu',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideMenuComponent implements OnInit {
 
+  @Input()
+  home:boolean = false;
+
+  @Input()
+  event:boolean = false;
+
+  @Input()
+  contact:boolean = false;
+
   open = false;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
