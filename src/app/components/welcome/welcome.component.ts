@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  title: string = "Private ShowCase";
+  title = 'Private ShowCase';
 
   constructor() { }
 

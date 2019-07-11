@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute } from '@angular/router';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -23,6 +24,11 @@ describe('HeaderComponent', () => {
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ],
+      providers: [
+        {
+          provide: ActivatedRoute, useValue: { routeConfig: { path: '' } }
+        }
+      ]
     })
     .compileComponents();
   }));

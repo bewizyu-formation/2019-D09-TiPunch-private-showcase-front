@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilComponent implements OnInit {
 
-  title: string = "Private ShowCase";
+  title = 'Private ShowCase';
 
   constructor() { }
 

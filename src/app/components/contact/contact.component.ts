@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  title: string = "Contacts";
+  title = 'Contacts';
 
   constructor() { }
 

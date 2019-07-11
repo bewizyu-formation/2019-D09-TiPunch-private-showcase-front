@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PATH_EVENT, PATH_WELCOME, PATH_SIGNUP, PATH_LOGIN, PATH_HOME, PATH_CONTACT, PATH_PROFIL, PATH_ARTIST } from 'src/app/app-routing.constantes';
+import { PATH_EVENT, PATH_SIGNUP, PATH_LOGIN, PATH_HOME, PATH_CONTACT, PATH_PROFIL, PATH_ARTIST } from 'src/app/app-routing.constantes';
 
 @Component({
   selector: 'app-header',
@@ -12,19 +12,19 @@ export class HeaderComponent implements OnInit {
   location: string;
 
   @Input()
-  title: string = "Private ShowCase";  
+  title = 'Private ShowCase';
 
-  constructor(private route:ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.location = this.route.routeConfig.path;
   }
 
-  isEvent(): boolean{
+  isEvent(): boolean {
     return this.location.includes(PATH_EVENT);
   }
 
-  isWelcome(): boolean{
+  isWelcome(): boolean {
     return !(
       this.isEvent() ||
       this.isSignUp() ||
@@ -33,30 +33,30 @@ export class HeaderComponent implements OnInit {
       this.isContact() ||
       this.isProfil() ||
       this.isArtistDetail()
-      ); 
+    );
   }
 
-  isSignUp(): boolean{
+  isSignUp(): boolean {
     return this.location.includes(PATH_SIGNUP);
   }
 
-  isLogin(): boolean{
+  isLogin(): boolean {
     return this.location.includes(PATH_LOGIN);
   }
 
-  isHome(): boolean{
+  isHome(): boolean {
     return this.location.includes(PATH_HOME);
   }
 
-  isContact(): boolean{
+  isContact(): boolean {
     return this.location.includes(PATH_CONTACT);
   }
 
-  isProfil(): boolean{
+  isProfil(): boolean {
     return this.location.includes(PATH_PROFIL);
   }
 
-  isArtistDetail(): boolean{
+  isArtistDetail(): boolean {
     return this.location.includes(PATH_ARTIST);
   }
 }

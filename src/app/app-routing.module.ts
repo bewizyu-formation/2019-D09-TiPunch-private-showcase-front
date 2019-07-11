@@ -1,6 +1,15 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
-import { PATH_LOGIN, PATH_WELCOME, PATH_SIGNUP, PATH_HOME, PATH_EVENT, PATH_CONTACT, PATH_PROFIL, PATH_ARTIST } from './app-routing.constantes';
+import {
+    PATH_LOGIN,
+    PATH_WELCOME,
+    PATH_SIGNUP,
+    PATH_HOME,
+    PATH_EVENT,
+    PATH_CONTACT,
+    PATH_PROFIL,
+    PATH_ARTIST
+} from './app-routing.constantes';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
@@ -39,7 +48,7 @@ export const ROUTES: Routes = [
         component: ProfilComponent
     },
     {
-        path: PATH_ARTIST +'/:nameArtist',
+        path: PATH_ARTIST + '/:nameArtist',
         component: ArtistComponent
     }
 ];

@@ -13,37 +13,37 @@ export class SideMenuComponent implements OnInit {
 
   open = false;
 
-  constructor(private router:Router, private route:ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.location = this.route.routeConfig.path;
   }
 
-  onClick(){
+  onClick() {
     this.open = !this.open;
   }
 
-  isHome(){
+  isHome() {
     return this.location.includes(PATH_HOME);
   }
 
-  isEvent(){
+  isEvent() {
     return this.location.includes(PATH_EVENT);
   }
 
-  isContact(){
+  isContact() {
     return this.location.includes(PATH_CONTACT);
   }
 
-  goToHome(){
+  goToHome() {
     this.router.navigate([PATH_HOME]);
   }
 
-  goToEvents(){
+  goToEvents() {
     this.router.navigate([PATH_EVENT]);
   }
 
-  goToContacts(){
+  goToContacts() {
     this.router.navigate([PATH_CONTACT]);
   }
 

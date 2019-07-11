@@ -17,21 +17,20 @@ export class HeaderReturnButtonComponent implements OnInit {
     this.location = this.route.routeConfig.path;
   }
 
-  isSignUp(){
+  isSignUp() {
     return this.location.includes(PATH_SIGNUP);
   }
 
-  isLogin(){
+  isLogin() {
     return this.location.includes(PATH_LOGIN);
   }
 
 
 
   return() {
-    if(this.isSignUp() || this.isLogin()){
+    if (this.isSignUp() || this.isLogin()) {
       this.router.navigate([PATH_WELCOME]);
-    }
-    else{
+    } else {
       this.router.navigate([PATH_HOME]);
     }
   }

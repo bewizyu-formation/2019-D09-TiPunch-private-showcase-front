@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  title: string = "Artistes dans votre departement"
+  title = 'Artistes dans votre departement';
 
   constructor() { }
 

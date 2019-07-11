@@ -17,19 +17,19 @@ export class UserMenuComponent implements OnInit {
   }
 
   // A compléter : Remplacer les données mockées
-  goToArtistProfil(){
-    // Récupération du nom de l'artiste connecté 
+  goToArtistProfil() {
+    // Récupération du nom de l'artiste connecté
     this.artistName = 'TOTO';
     // Redirection
     this.route.navigate([PATH_ARTIST, this.artistName]);
   }
 
-  goToProfilUser(){
+  goToProfilUser() {
     this.route.navigate([PATH_PROFIL]);
   }
 
   // A METTRE EN PLACE
-  logout(){
+  logout() {
     // Faire la déconnection de l'utilisateur courant
     // redirection vers home
     this.route.navigate([PATH_WELCOME]);
