@@ -98,7 +98,7 @@ export class SignupComponent implements OnInit {
         map(value => this._filter(value))
       );
   }
-   //Filter for cities autocomplete
+  // Filter for cities autocomplete
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
@@ -121,21 +121,22 @@ export class SignupComponent implements OnInit {
             this.userService.signUpUser(user);
             this.route.navigate([PATH_LOGIN]);
           } else {
+            this.errorLoginTaken = false;
             this.userService.checkArtistnameNotTaken(this.artistNameCtrl.value)
-              .then((item) => {
-                checkArtistname = item;
+              .then((data) => {
+                checkArtistname = data;
                 if (checkArtistname) {
                   console.log('nom d artiste dispo');
                   // Artist
                   this.errorArtistnameTaken = false;
                   const artist = new Artist(
-                  this.loginCtrl.value,
-                  this.passwordCtrl.value,
-                  this.emailCtrl.value,
-                  this.cityCtrl.value,
-                  this.artistNameCtrl.value,
-                  this.descriptionCtrl.value,
-                  roles);
+                    this.loginCtrl.value,
+                    this.passwordCtrl.value,
+                    this.emailCtrl.value,
+                    this.cityCtrl.value,
+                    this.artistNameCtrl.value,
+                    this.descriptionCtrl.value,
+                    roles);
                   this.userService.signUpArtist(artist);
                   this.route.navigate([PATH_LOGIN]);
                 } else {

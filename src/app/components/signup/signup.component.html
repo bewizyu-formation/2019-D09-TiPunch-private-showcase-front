@@ -6,6 +6,12 @@
 
     <form [formGroup]="userForm" class="container">
         <p class="container_title">Formulaire d'inscription</p>
+        <mat-error *ngIf="errorLoginTaken">
+            Ce login existe déjà
+        </mat-error>
+        <mat-error *ngIf="errorArtistnameTaken">
+            Ce nom d'artiste existe déjà
+        </mat-error>
         <div [formGroup]="noArtistForm">
             <div class="container_login">
                 <mat-form-field class="container_bound ">
@@ -13,9 +19,6 @@
                     <mat-error *ngIf="loginCtrl.dirty && loginCtrl.hasError('required')">
                         Le champ login est requis
                     </mat-error>
-                    <div *ngIf="errorLoginTaken">
-                        Ce login existe déjà
-                    </div>
                 </mat-form-field>
             </div>
 
@@ -92,9 +95,6 @@
                     <mat-error *ngIf="artistNameCtrl.dirty && artistNameCtrl.hasError('required')">
                         Le nom d'artiste est requis
                     </mat-error>
-                    <div *ngIf="errorArtistnameTaken">
-                        Ce nom d'artiste existe déjà
-                    </div>
                 </mat-form-field>
             </div>
 
