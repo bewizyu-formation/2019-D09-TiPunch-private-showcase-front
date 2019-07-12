@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { UserRepository } from './user.repository';
 import { HttpResponse, HttpClient } from '@angular/common/http';
+import { User } from '../models/user.model';
+import { Artist } from '../models/artist.model';
+import { FormControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +15,9 @@ export class UserService {
    * Authentification JWT Token
    */
   public token: string;
+
+  private checkLogin: boolean;
+  private checkArtistname: boolean;
 
   constructor(private userRepository: UserRepository, private http: HttpClient) {
   }
@@ -34,14 +40,58 @@ export class UserService {
     });
   }
 
+  signUpUser(user: User) {
+    console.log('USER SERVICE SIGNUP');
+    return new Promise((resolve, reject) => {
 
-  checkUsernameNotTaken(login: string): boolean {
-    const json = this.http.get(`http://localhost:8080/users/checkUsernameNotTaken/${login}`);
-    return json['usernameNotTaken'];
+      this.userRepository.signUpUser(user)
+        .subscribe((response: HttpResponse<any>) => {
+          console.log(response.status);
+        });
+    });
   }
 
-  checkArtistNameNotTaken(artistName: string): boolean {
-    const json = this.http.get(`http://localhost:8080/users/checkArtistNameNotTaken/${artistName}`);
-    return json['artistNameNotTaken'];
+  signUpArtist(artist: Artist) {
+    console.log('ARTIST SERVICE SIGNUP');
+    return new Promise((resolve, reject) => {
+
+      this.userRepository.signUpArtist(artist)
+        .subscribe((response: HttpResponse<any>) => {
+          console.log(response.status);
+        });
+    });
+  }
+
+
+  checkUsernameNotTaken(login: FormControl): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.userRepository
+        .checkUsernameNotTaken(login)
+        .subscribe((response) => {
+          const obj = JSON.parse(response.usernameNotTaken);
+          console.log(obj);
+          this.checkLogin = obj;
+          resolve(this.checkLogin);
+        }, () => {
+          reject('Erreur');
+        },
+        );
+    });
+  }
+
+  checkArtistnameNotTaken(name: FormControl): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.userRepository
+        .checkArtistnameNotTaken(name)
+        .subscribe((response) => {
+          const obj = JSON.parse(response.artistNameNotTaken);
+          console.log(obj);
+          this.checkArtistname = obj;
+          resolve(this.checkArtistname);
+        }, () => {
+          reject('Erreur');
+        },
+        );
+    });
   }
 }

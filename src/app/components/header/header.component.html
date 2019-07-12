@@ -1,11 +1,19 @@
 <header class="header">
-  <div *ngIf="returnButton">
+  <div *ngIf="isSignUp() || isEvent() || isLogin() || isProfil() || isArtistDetail()">
     <app-header-return-button></app-header-return-button>
   </div>
+  <div *ngIf="isHome() || isContact()">
+    <app-side-menu></app-side-menu>
+  </div>
+
   <p class="header_title">
-    Private ShowCase
+    {{title}}
   </p>
-  <div *ngIf="right">
+  <div *ngIf="isEvent() || isHome() || isContact() || isArtistDetail()">
+    <app-user-menu></app-user-menu>
+  </div>
+  <div *ngIf="isWelcome()">
     <app-header-sign></app-header-sign>
   </div>
 </header>
+<div class="header_margin"></div>

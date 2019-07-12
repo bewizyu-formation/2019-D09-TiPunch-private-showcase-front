@@ -1,33 +1,32 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderReturnButtonComponent } from './header-return-button.component';
-import { MatButtonModule, MatIconModule } from '@angular/material';
+import { SideMenuComponent } from './side-menu.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
 
-describe('HeaderReturnButtonComponent', () => {
-  let component: HeaderReturnButtonComponent;
-  let fixture: ComponentFixture<HeaderReturnButtonComponent>;
+describe('SideMenuComponent', () => {
+  let component: SideMenuComponent;
+  let fixture: ComponentFixture<SideMenuComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderReturnButtonComponent],
+      declarations: [ SideMenuComponent ],
       imports: [
-        MatButtonModule,
-        MatIconModule,
         RouterTestingModule
       ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         {
           provide: ActivatedRoute, useValue: { routeConfig: { path: '' } }
         }
       ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderReturnButtonComponent);
+    fixture = TestBed.createComponent(SideMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

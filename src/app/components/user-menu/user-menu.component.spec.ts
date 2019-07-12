@@ -1,34 +1,30 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderComponent } from './header.component';
+import { UserMenuComponent } from './user-menu.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatButtonToggleModule, MatButtonModule, MatMenuModule } from '@angular/material';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ActivatedRoute } from '@angular/router';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('UserMenuComponent', () => {
+  let component: UserMenuComponent;
+  let fixture: ComponentFixture<UserMenuComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
+      declarations: [ UserMenuComponent ],
       imports: [
+        MatButtonToggleModule,
+        MatButtonModule,
+        MatMenuModule,
         RouterTestingModule
       ],
-      schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
-      ],
-      providers: [
-        {
-          provide: ActivatedRoute, useValue: { routeConfig: { path: '' } }
-        }
-      ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(UserMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

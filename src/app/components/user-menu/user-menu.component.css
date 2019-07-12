@@ -1,0 +1,27 @@
+.user-menu {
+    position: absolute;
+    right: 24px;
+}
+
+.user-menu_menu {
+    width: 205px;
+    box-shadow: -1px 2px 2px 0 rgba(0, 0, 0, 0.38);
+    background-color: #fafafa;
+}
+
+.user-menu_button_text {
+    display: inline-block;
+    margin: 0 9px;
+    font-family: Roboto;
+    font-size: 18px;
+    height: 21px;
+    line-height: normal;
+}
+
+.user-menu_button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 24px;
+    height: 40px;
+}
