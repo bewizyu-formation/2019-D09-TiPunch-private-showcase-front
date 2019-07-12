@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 
 @Component({
@@ -10,9 +11,11 @@ export class ArtistComponent implements OnInit {
 
   title = 'Fiche Artiste';
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      console.log(params);
+    });
   }
-
 }

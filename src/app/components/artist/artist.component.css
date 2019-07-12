@@ -76,16 +76,23 @@
 .artist-detail_card_divider {
     border-width: 3px;
     border-color: #979797;
-    margin-right: 40px;
 }
 
 .artist-detail_card_informations_list {
     padding: 0;
+    width: 521px;
 }
 
 .artist-detail_card_informations_left_text {
     display: inline-block;
     margin: 0 20px;
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 1.33;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.artist-detail_card_informations_rigth_title {
     font-family: Roboto;
     font-size: 18px;
     line-height: 1.33;
