@@ -16,6 +16,7 @@ export class ArtistRepository {
      * @param control input field
      */
     getArtists(departmentName: string): Observable<any> {
-        return this.http.get(`http://localhost:8080/artistdetails/${departmentName}`);
+        console.log("in repository")
+        return this.http.get(`http://localhost:8080/artistdetails/departments`);
     }
 }

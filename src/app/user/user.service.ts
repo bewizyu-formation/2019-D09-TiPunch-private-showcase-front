@@ -62,7 +62,7 @@ export class UserService {
     });
   }
 
-
+  
   checkUsernameNotTaken(login: FormControl): Promise<any> {
     return new Promise((resolve, reject) => {
       this.userRepository

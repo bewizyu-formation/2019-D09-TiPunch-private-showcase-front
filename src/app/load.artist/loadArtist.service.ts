@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ArtistRepository } from './loadArtist.repository';
 import { ArtistDetail } from '../models/artistDetail';
 
@@ -12,7 +11,7 @@ export class ArtistService {
 
     artistsDetail: Array<ArtistDetail>;
 
-    constructor(private artistRepository: ArtistRepository, private http: HttpClient) {
+    constructor(private artistRepository: ArtistRepository) {
     }
 
     /**
@@ -24,12 +23,12 @@ export class ArtistService {
             this.artistRepository
                 .getArtists(departmentName)
                 .subscribe((response) => {
-                    this.artistsDetail = response.map(item => item.artist);
-                    console.log("subscribe")
+                    console.log(response);
+                    this.artistsDetail = response.map(item => new ArtistDetail(item.artist, item.photo, item.site, item.vote, item.phoneNumber, item.description));
+                    console.log("subscribe work")
                     resolve(this.artistsDetail);
                 }, () => {
-                    console.log("rejected")
-                    reject('Erreur');
+                    reject('erreur');
                 });
         });
     }
