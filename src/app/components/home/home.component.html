@@ -1,1 +1,35 @@
 <app-header [title]="title"></app-header>
+<div class="container">
+    <mat-grid-list class="test" cols="3 " rowHeight="304px" gutterSize="20px ">
+
+        <div *ngFor="let artist of artists">
+            <mat-grid-tile [ngStyle]="{'background-image': 'url(' + artist.image + ')'}">
+                <mat-grid-tile-footer>
+                    <div>
+                        <h1>{{artist.username}}</h1>
+                        <p>{{artist.description}}</p>
+                    </div>
+                    <div class="rating">
+                        <div class="stars">
+                            <div class="etoiles">
+                                <img class="star" src="../../assets/star-copy-2.svg">
+                                <img class="star" src="../../assets/star-copy-2.svg">
+                                <img class="star" src="../../assets/star-copy-2.svg">
+                                <img class="star" src="../../assets/star-copy-2.svg">
+                                <img class="star" src="../../assets/star-copy-2.svg">
+
+                            </div>
+                            <p>{{artist.vote}} votes</p>
+                        </div>
+                        <div>
+                            <button mat-button (click)="goToArtist($event)"><img class="eye" src="../../assets/eye.svg">VOIR</button>
+                        </div>
+                        <div>
+                            <p><img class="calendar" src="../../assets/calendar.svg"> <a href="">BOOKER</a></p>
+                        </div>
+                    </div>
+                </mat-grid-tile-footer>
+            </mat-grid-tile>
+        </div>
+    </mat-grid-list>
+</div>

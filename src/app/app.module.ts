@@ -27,6 +27,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderReturnButtonComponent } from './components/header-return-button/header-return-button.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
@@ -70,6 +71,7 @@ import { ArtistComponent } from './components/artist/artist.component';
     MatAutocompleteModule,
     MatButtonToggleModule,
     MatButtonModule,
+    MatGridListModule,
     MatToolbarModule,
     MatMenuModule,
     RouterModule.forRoot(ROUTES)

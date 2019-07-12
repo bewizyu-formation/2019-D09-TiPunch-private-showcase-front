@@ -6,8 +6,8 @@ import { startWith, map, ignoreElements } from 'rxjs/operators';
 import { UserService } from 'src/app/user/user.service';
 import { HttpClient } from '@angular/common/http';
 import { CommuneService } from 'src/app/commune/commune.service';
-import { User } from 'src/app/models/User';
-import { Artist } from 'src/app/models/Artist';
+import { User } from 'src/app/models/user.model';
+import { Artist } from 'src/app/models/artist.model';
 import { Router } from '@angular/router';
 import { PATH_WELCOME, PATH_LOGIN } from 'src/app/app-routing.constantes';
 
@@ -133,8 +133,7 @@ export class SignupComponent implements OnInit {
                     this.emailCtrl.value,
                     this.cityCtrl.value,
                     this.artistNameCtrl.value,
-                    this.descriptionCtrl.value,
-                    roles);
+                    this.descriptionCtrl.value);
                   this.userService.signUpArtist(artist);
                   this.route.navigate([PATH_LOGIN]);
                 } else {

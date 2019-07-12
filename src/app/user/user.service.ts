@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { UserRepository } from './user.repository';
 import { HttpResponse, HttpClient } from '@angular/common/http';
-import { User } from '../models/User';
-import { Artist } from '../models/Artist';
+import { User } from '../models/user.model';
+import { Artist } from '../models/artist.model';
 import { FormControl } from '@angular/forms';
 
 @Injectable({

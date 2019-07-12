@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EnvironmentService } from '../services/environment.service';
-import { User } from '../models/User';
-import { Artist } from '../models/Artist';
+import { User } from '../models/user.model';
+import { Artist } from '../models/artist.model';
 import { FormControl } from '@angular/forms';
 
 export const RESOURCES_LOGIN = '/login';
@@ -49,7 +49,7 @@ export class UserRepository {
       password: artist.password,
       email: artist.email,
       city: artist.city,
-      name: artist.name,
+      name: artist.username,
       description: artist.description,
       roles: artist.roles
     }, {
