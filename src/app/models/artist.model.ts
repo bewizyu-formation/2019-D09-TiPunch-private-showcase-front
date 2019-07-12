@@ -7,7 +7,7 @@ export class Artist extends User {
         public city: string,
         public vote: number,
         public description = '',
-        public image: string | undefined,
+        public image: string = '',
         public descriptionLongue = '',
         public roles: Array<String> = new Array<String>()) {
         super(username, password, email, city, roles);
