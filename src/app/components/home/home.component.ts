@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ArtistService } from 'src/app/load.artist/loadArtist.service';
+import { ArtistDetail } from 'src/app/models/artistDetail';
+import { Artist } from 'src/app/models/Artist';
 
 @Component({
   selector: 'app-home',
@@ -13,20 +15,40 @@ export class HomeComponent implements OnInit {
   isNotLoaded = true;
   departement = "";
 
+  artistsDetail: Array<ArtistDetail> = [];
+
 
   constructor(public artistService: ArtistService) { }
 
-  loader() {
-    
+  getArtistsDetail() {
+    this.artistService.getArtists(this.departement)
+    .then(data => {
+      this.artistsDetail = data;
+    });
   }
 
   ngOnInit() {
-    this.artistService.getArtists(this.departement)
+    //this.getArtistsDetail()
 
-    while (this.artistService.artistsDetail.length==0) {
+    setTimeout(function() { 
+      const roles = ['ROLE_USER'];
+      const artist = new Artist( "jjj","hhh","kgkj","hgkj","khghlkj","jhfgkji",roles);
+      this.artistsDetail =[
+        new ArtistDetail(artist,"photo", "site", 5, 654654, "description")
+    ];
+    console.log(this.artistsDetail) 
+  }, 3000);
+
+    /* while (this.artistsDetail.length=0) {
       this.isNotLoaded =true;
-    }
-    this.isNotLoaded=false;
+    } */
+    /* setTimeout(function() { 
+      if(this.artistsDetail.length!=0){
+        this.isNotLoaded=false;
+      }
+  }, 4000) */
+    
+    
   }
 
 }

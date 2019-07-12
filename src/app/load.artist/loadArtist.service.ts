@@ -25,8 +25,10 @@ export class ArtistService {
                 .getArtists(departmentName)
                 .subscribe((response) => {
                     this.artistsDetail = response.map(item => item.artist);
+                    console.log("subscribe")
                     resolve(this.artistsDetail);
                 }, () => {
+                    console.log("rejected")
                     reject('Erreur');
                 });
         });
