@@ -30,5 +30,8 @@ export class ArtistService {
                     reject('Erreur');
                 });
         });
-    };
+    }
+
+
 }
+

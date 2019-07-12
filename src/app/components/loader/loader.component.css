@@ -22,7 +22,6 @@
     margin:auto;
     max-width: 682px;
     border-radius: 14px;
-    background-color: none;
     margin-top: 64px;
     margin-bottom: 16px;
     padding: 28px, 0px;
@@ -30,9 +29,12 @@
 
 .image{
     position: absolute;
-    top:50%;
-    left: 50%;
-    height: 100px;
-    width:200px;
-    opacity: 0.5;
+    top:200px;
+    left: 50%-100px;
+    
+}
+.image-icone{
+  height: 100px;
+  width:200px;
+  opacity: 0.5;
 }
