@@ -11,7 +11,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatInputModule, MatListModule, MatGridListModule, MatIconModule } from '@angular/material';
+import { MatInputModule, MatListModule, MatIconModule } from '@angular/material';
+import { MatDividerModule } from '@angular/material/divider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -24,7 +25,6 @@ import { ROUTES } from './app-routing.module';
 import { HeaderSignComponent } from './components/header-sign/header-sign.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { HomeComponent } from './components/home/home.component';
-import { HeaderReturnComponent } from './components/header-return/header-return.component';
 import { HeaderReturnButtonComponent } from './components/header-return-button/header-return-button.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
@@ -46,7 +46,6 @@ import { ArtistComponent } from './components/artist/artist.component';
     HeaderSignComponent,
     BannerComponent,
     HomeComponent,
-    HeaderReturnComponent,
     HeaderReturnButtonComponent,
     WelcomeComponent,
     SideMenuComponent,
@@ -63,6 +62,7 @@ import { ArtistComponent } from './components/artist/artist.component';
     MatIconModule,
     MatFormFieldModule,
     MatCheckboxModule,
+    MatDividerModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,

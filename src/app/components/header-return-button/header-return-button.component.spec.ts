@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderReturnButtonComponent } from './header-return-button.component';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatIconModule } from '@angular/material';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
 
@@ -14,6 +14,7 @@ describe('HeaderReturnButtonComponent', () => {
       declarations: [HeaderReturnButtonComponent],
       imports: [
         MatButtonModule,
+        MatIconModule,
         RouterTestingModule
       ],
       providers: [
