@@ -70,7 +70,7 @@ export class ProfilComponent implements OnInit {
     if (this.oldPasswordCtrl.value === this.user.password) {
       this.route.navigate([PATH_HOME]);
     } else {
-      this.passwordIsFalse = true
+      this.passwordIsFalse = true;
     }
 
   }
