@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventComponent implements OnInit {
 
-  title = 'Evènements';
+  title = 'Évènements';
 
   constructor() { }
 

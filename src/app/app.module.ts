@@ -11,7 +11,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatInputModule, MatListModule, MatIconModule } from '@angular/material';
+import { MatInputModule, MatListModule, MatIconModule, MatChipsModule } from '@angular/material';
 import { MatDividerModule } from '@angular/material/divider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -36,6 +36,7 @@ import { EventComponent } from './components/event/event.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { ArtistComponent } from './components/artist/artist.component';
+import { VoteComponent } from './components/vote/vote.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { ArtistComponent } from './components/artist/artist.component';
     EventComponent,
     ContactComponent,
     ProfilComponent,
-    ArtistComponent
+    ArtistComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +69,7 @@ import { ArtistComponent } from './components/artist/artist.component';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatChipsModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonToggleModule,
