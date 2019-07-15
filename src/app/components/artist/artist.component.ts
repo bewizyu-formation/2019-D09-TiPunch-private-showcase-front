@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ArtistDetail } from 'src/app/models/artistDetail.model';
+import { ArtistService } from 'src/app/load.artist/loadArtist.service';
+import _ from 'lodash';
+
 
 
 @Component({
@@ -11,6 +14,7 @@ import { ArtistDetail } from 'src/app/models/artistDetail.model';
 export class ArtistComponent implements OnInit {
 
   title = 'Fiche Artiste';
+  // artist: ArtistDetail=null;
 
   artist = new ArtistDetail('/src/assets/startboy.jpg',
     'the weeknd',
@@ -29,11 +33,22 @@ export class ArtistComponent implements OnInit {
     20, 4,
     ['Auvergne Rhône-Alpes', 'Savoie', 'Haute Savoie']);
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, public artistService: ArtistService) { }
+
+  getArtistDetail(artistName) {
+    this.artistService.getDetailArtist(artistName)
+      .then(data => {
+        this.artist = data;
+        this.artist.photo = '../../assets/startboy.jpg';
+        if (_.isNaN(this.artist.moyVotes)) { this.artist.moyVotes = 0; }
+      }).catch(function (e) {
+        console.log(e);
+      });
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      console.log(params);
+      this.getArtistDetail(params.get('nameArtist'));
     });
   }
 }

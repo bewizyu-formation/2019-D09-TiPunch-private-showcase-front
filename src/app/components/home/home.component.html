@@ -1,5 +1,13 @@
 <app-header [title]="title"></app-header>
+
+
+
+
+
 <div class="container">
+    <div classe="loader" *ngIf="isNotLoaded">
+        <app-loader></app-loader>
+    </div>
     <mat-grid-list class="test" cols="3 " rowHeight="304px" gutterSize="20px ">
 
         <div *ngFor="let artist of artists">

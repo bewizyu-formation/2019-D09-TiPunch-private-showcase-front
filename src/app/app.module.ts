@@ -27,7 +27,9 @@ import { BannerComponent } from './components/banner/banner.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderReturnButtonComponent } from './components/header-return-button/header-return-button.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { LoaderComponent } from './components/loader/loader.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
@@ -50,6 +52,7 @@ import { VoteComponent } from './components/vote/vote.component';
     HomeComponent,
     HeaderReturnButtonComponent,
     WelcomeComponent,
+    LoaderComponent,
     SideMenuComponent,
     UserMenuComponent,
     EventComponent,
@@ -74,6 +77,8 @@ import { VoteComponent } from './components/vote/vote.component';
     MatAutocompleteModule,
     MatButtonToggleModule,
     MatButtonModule,
+    RouterModule.forRoot(ROUTES),
+    MatProgressSpinnerModule,
     MatGridListModule,
     MatToolbarModule,
     MatMenuModule,

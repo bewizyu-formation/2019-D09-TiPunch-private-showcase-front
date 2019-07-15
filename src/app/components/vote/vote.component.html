@@ -1,11 +1,13 @@
 <div class="vote">
-    <div class="vote_moy">
-        <div *ngFor="let i of [1,2,3,4,5];">
-            <img *ngIf="i <= moyVote" src="src/assets/star-full.png" srcset="src/assets/star-full@2x.png 2x, src/assets/star-full@3x.png 3x" />
-            <img *ngIf="i > moyVote" src="src/assets/star-empty.png" srcset="src/assets/star-empty@2x.png 2x, src/assets/star-empty@3x.png 3x" />
-        </div>
+  <div class="vote_moy">
+    <div *ngFor="let i of [1,2,3,4,5];">
+      <img *ngIf="i <= moyVote" src="/src/assets/star-full.png"
+        srcset="/src/assets/star-full@2x.png 2x, /src/assets/star-full@3x.png 3x" />
+      <img *ngIf="i > moyVote" src="/src/assets/star-empty.png"
+        srcset="/src/assets/star-empty@2x.png 2x, /src/assets/star-empty@3x.png 3x" />
     </div>
-    <p class="vote_nb">
-        ({{nbVote}} votes)
-    </p>
+  </div>
+  <p class="vote_nb">
+    ({{nbVote}} votes)
+  </p>
 </div>
