@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { ArtistService } from 'src/app/load.artist/loadArtist.service';
+=======
+import { Component, OnInit, Input } from '@angular/core';
+>>>>>>> 84aa4416a66bb2dda05c206ce2588e6d9635e49a
 import { ArtistHome } from 'src/app/models/artistHome.model';
 import { Router } from '@angular/router';
 import { PATH_ARTIST } from 'src/app/app-routing.constantes';

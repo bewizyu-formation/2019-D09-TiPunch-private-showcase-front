@@ -1,4 +1,4 @@
-<app-header [returnButton]=true></app-header>
+<app-header [title]="title"></app-header>
 <app-banner></app-banner>
 
 <div class="global-container">
@@ -24,8 +24,7 @@
 
             <div class="container_password">
                 <mat-form-field class="container_bound">
-                    <input type="password" class="container_password_input" [formControl]=" passwordCtrl " matInput
-                        placeholder="Mot de passe ">
+                    <input type="password" class="container_password_input" [formControl]=" passwordCtrl " matInput placeholder="Mot de passe ">
                     <mat-error *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">
                         Le champ mot de passe est requis
                     </mat-error>
@@ -37,8 +36,7 @@
 
             <div class="container_confirmationPassword">
                 <mat-form-field class="container_bound ">
-                    <input type="password" class="container_confirmationPassword_input"
-                        [formControl]="confirmationPasswordCtrl " matInput placeholder="Confirmer le mot de passe ">
+                    <input type="password" class="container_confirmationPassword_input" [formControl]="confirmationPasswordCtrl " matInput placeholder="Confirmer le mot de passe ">
                     <mat-error *ngIf="confirmationPasswordCtrl.dirty && confirmationPasswordCtrl.hasError('required')">
                         La confirmation est requise
                     </mat-error>
@@ -50,8 +48,7 @@
 
             <div class="container_email">
                 <mat-form-field class="container_bound ">
-                    <input type="text" class="container_email_input" [formControl]="emailCtrl " matInput
-                        placeholder="Email ">
+                    <input type="text" class="container_email_input" [formControl]="emailCtrl " matInput placeholder="Email ">
                     <mat-error *ngIf="emailCtrl.dirty && emailCtrl.hasError('email')">
                         Le champ email n'est pas valide
                     </mat-error>
@@ -65,8 +62,7 @@
 
             <div class="container_city">
                 <mat-form-field class="container_bound ">
-                    <input class="container_city_input" [formControl]="cityCtrl " matInput
-                        placeholder="Ville" [matAutocomplete]="auto">
+                    <input class="container_city_input" [formControl]="cityCtrl " matInput placeholder="Ville" [matAutocomplete]="auto">
                     <mat-autocomplete #auto="matAutocomplete">
                         <mat-option *ngFor="let city of filteredCities | async" [value]="city">
                             {{city}}
@@ -90,8 +86,7 @@
 
             <div class="container_artist">
                 <mat-form-field class="container_bound ">
-                    <input class="container_artist_input" [formControl]="artistNameCtrl " matInput
-                        placeholder="Nom artiste ">
+                    <input class="container_artist_input" [formControl]="artistNameCtrl " matInput placeholder="Nom artiste ">
                     <mat-error *ngIf="artistNameCtrl.dirty && artistNameCtrl.hasError('required')">
                         Le nom d'artiste est requis
                     </mat-error>
@@ -101,13 +96,11 @@
 
             <div class="container_description">
                 <mat-form-field class="container_bound ">
-                    <textarea class="container_description_input" [formControl]="descriptionCtrl " matInput
-                        placeholder="Description "></textarea>
+                    <textarea class="container_description_input" [formControl]="descriptionCtrl " matInput placeholder="Description "></textarea>
                     <mat-error *ngIf="descriptionCtrl.dirty && descriptionCtrl.hasError('required')">
                         La description est requise
                     </mat-error>
-                    <mat-error
-                        *ngIf="descriptionCtrl.dirty && (descriptionCtrl.hasError('maxlength') || descriptionCtrl.hasError('minlength'))">
+                    <mat-error *ngIf="descriptionCtrl.dirty && (descriptionCtrl.hasError('maxlength') || descriptionCtrl.hasError('minlength'))">
                         La description doit faire entre 20 et 250 caracteres
                     </mat-error>
                 </mat-form-field>
@@ -118,8 +111,7 @@
             <mat-button-toggle (click)="cancel()" class="container_validadedbutton container_button">
                 <p class="container_button_paragraph">Annuler</p>
             </mat-button-toggle>
-            <mat-button-toggle (click)="submit()" class="container_canceledbutton container_button"
-                [disabled]="isHidden? noArtistForm.invalid : userForm.invalid ">
+            <mat-button-toggle (click)="submit()" class="container_canceledbutton container_button" [disabled]="isHidden? noArtistForm.invalid : userForm.invalid ">
                 <p class="container_button_paragraph">Valider</p>
             </mat-button-toggle>
         </div>

@@ -35,6 +35,8 @@ export class SignupComponent implements OnInit {
   errorLoginTaken = false;
   errorArtistnameTaken = false;
 
+  title = 'Private ShowCase';
+
   constructor(public fb: FormBuilder,
     public userService: UserService,
     public communeService: CommuneService,
