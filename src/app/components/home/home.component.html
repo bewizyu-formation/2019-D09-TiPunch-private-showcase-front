@@ -10,19 +10,9 @@
                         <p>{{artist.description}}</p>
                     </div>
                     <div class="rating">
-                        <div class="stars">
-                            <div class="etoiles">
-                                <img class="star" src="../../assets/star-copy-2.svg">
-                                <img class="star" src="../../assets/star-copy-2.svg">
-                                <img class="star" src="../../assets/star-copy-2.svg">
-                                <img class="star" src="../../assets/star-copy-2.svg">
-                                <img class="star" src="../../assets/star-copy-2.svg">
-
-                            </div>
-                            <p>{{artist.votes}} votes</p>
-                        </div>
+                        <app-vote [nbVote]="artist.nbVotes" [moyVote]="artist.moyVotes"></app-vote>
                         <div>
-                            <button mat-button (click)="goToArtist($event)"><img class="eye" src="../../assets/eye.svg">VOIR</button>
+                            <button mat-button (click)="goToArtist(artist.name)"><img class="eye" src="../../assets/eye.svg">VOIR</button>
                         </div>
                         <div>
                             <p><img class="calendar" src="../../assets/calendar.svg"> <a href="">BOOKER</a></p>

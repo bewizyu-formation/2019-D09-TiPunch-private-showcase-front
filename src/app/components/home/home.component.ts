@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   artists: Array<ArtistHome> = [
     new ArtistHome('../../assets/startboy.jpg', 3, 3, 'The Weeknd', 'Starboy'),
     new ArtistHome('../../assets/Dans-La-Peau-Digipack.jpg', 5, 2, 'Kyo', 'Derniere dance'),
-    new ArtistHome('../../assets/michaeljackson.jpg', 4, 3, 'Michael Jackson', 'The king of pop')
+    new ArtistHome('../../assets/michaeljackson.jpg', 5, 4, 'Michael Jackson', 'The king of pop')
   ];
 
   constructor(private router: Router) { }
@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToArtist(event: Event) {
-    this.router.navigate([PATH_ARTIST, 'TOTO']);
+  goToArtist(artistName : string) {
+    this.router.navigate([PATH_ARTIST, artistName]);
   }
 }
