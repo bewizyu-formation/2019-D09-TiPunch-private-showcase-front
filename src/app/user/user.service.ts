@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { UserRepository } from './user.repository';
 import { HttpResponse, HttpClient } from '@angular/common/http';
-import { User } from '../models/User';
-import { Artist } from '../models/Artist';
+import { User } from '../models/user.model';
 import { FormControl } from '@angular/forms';
+import { ArtistSignUp } from '../models/artistSU';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +51,7 @@ export class UserService {
     });
   }
 
-  signUpArtist(artist: Artist) {
+  signUpArtist(artist: ArtistSignUp) {
     console.log('ARTIST SERVICE SIGNUP');
     return new Promise((resolve, reject) => {
 

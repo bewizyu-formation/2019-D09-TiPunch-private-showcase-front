@@ -1,0 +1,73 @@
+<app-header [title]="title"></app-header>
+
+<mat-card class="artist-detail_card">
+    <mat-card-header class="artist-detail_card_header">
+        Présentation
+    </mat-card-header>
+    <mat-card-content class="artist-detail_card_content">
+        <div class="artist-detail_card_presentation">
+            <img src="{{artist.photo}}" class="artist-detail_card_img" />
+            <div class="artist-detail_card_texts">
+                <p class="artist-detail_card_text_name">{{artist.name}}</p>
+                <p class="artist-detail_card_text_describe-short">{{artist.description}}
+                </p>
+                <p class="artist-detail_card_text_describe-long">
+                    {{artist.longDescription}}
+                </p>
+            </div>
+            <div class="artist-detail_card_vote">
+                <app-vote [nbVote]="artist.nbVotes" [moyVote]="artist.moyVotes"></app-vote>
+            </div>
+
+        </div>
+    </mat-card-content>
+</mat-card>
+<mat-card class="artist-detail_card">
+    <mat-card-header class="artist-detail_card_header">
+        Informations générales
+    </mat-card-header>
+    <mat-card-content class="artist-detail_card_content">
+        <div class="artist-detail_card_informations">
+            <mat-list class="artist-detail_card_informations_list">
+                <mat-list-item>
+                    <mat-icon>alternate_email</mat-icon>
+                    <p class="artist-detail_card_informations_left_text">{{artist.site}}</p>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-icon>call</mat-icon>
+                    <p class="artist-detail_card_informations_left_text">{{artist.phoneNumber}}</p>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-icon>my_location</mat-icon>
+                    <p class="artist-detail_card_informations_left_text">{{artist.city}}</p>
+                </mat-list-item>
+            </mat-list>
+            <mat-divider [vertical]=true class="artist-detail_card_divider"></mat-divider>
+            <mat-list class="artist-detail_card_informations_list">
+                <mat-list-item class="artist-detail_card_informations_rigth_title">
+                    Départements acceptés :
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let departement of artist.departments">{{departement}}</mat-chip>
+                    </mat-chip-list>
+                </mat-list-item>
+            </mat-list>
+        </div>
+        <!--<mat-grid-list cols="2">
+      <mat-grid-tile>
+        <mat-list>
+          <mat-list-item>
+              
+          </mat-list-item>
+          
+          
+        </mat-list>
+      </mat-grid-tile>
+      <mat-divider [vertical]=true></mat-divider>
+      <mat-grid-tile>
+
+      </mat-grid-tile>
+    </mat-grid-list>-->
+    </mat-card-content>
+</mat-card>

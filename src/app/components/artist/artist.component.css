@@ -1,0 +1,107 @@
+.artist-detail_card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 58px 30px;
+}
+
+.artist-detail_card_header {
+    margin-left: 26px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.12), 0 0 2px rgba(0, 0, 0, 0.14);
+    font-family: Roboto;
+    font-size: 24px;
+    line-height: 1.33;
+    color: #ffffff;
+}
+
+.artist-detail_card_content {
+    border: solid 1px #979797;
+    background-color: #fafafa;
+    width: 100%;
+}
+
+.artist-detail_card_presentation {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 24px 33px 29px;
+}
+
+.artist-detail_card_img {
+    min-width: 277px;
+    object-fit: cover;
+}
+
+.artist-detail_card_texts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 47px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.artist-detail_card_text_name {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.17;
+    margin: 0;
+}
+
+.artist-detail_card_text_describe-short {
+    font-family: Roboto;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.artist-detail_card_text_describe-long {
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.43;
+    text-align: justify;
+    margin: 0 44px 0 0;
+}
+
+.artist-detail_card_vote {
+    position: absolute;
+    right: 34px;
+    top: 21px;
+}
+
+.artist-detail_card_informations {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 36px;
+    border: solid 1px #979797;
+    background-color: #fafafa;
+    width: 100%;
+}
+
+.artist-detail_card_divider {
+    border-width: 3px;
+    border-color: #979797;
+}
+
+.artist-detail_card_informations_list {
+    padding: 0;
+    width: 521px;
+}
+
+.artist-detail_card_informations_left_text {
+    display: inline-block;
+    margin: 0 20px;
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 1.33;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.artist-detail_card_informations_rigth_title {
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 1.33;
+    color: rgba(0, 0, 0, 0.87);
+}

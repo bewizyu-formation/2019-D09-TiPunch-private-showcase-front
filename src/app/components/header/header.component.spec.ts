@@ -1,11 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule } from '@angular/material';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute } from '@angular/router';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -15,14 +13,16 @@ describe('HeaderComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ HeaderComponent ],
       imports: [
-        BrowserModule,
-        HttpClientModule,
-        MatButtonModule,
         RouterTestingModule
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ],
+      providers: [
+        {
+          provide: ActivatedRoute, useValue: { routeConfig: { path: '' } }
+        }
+      ]
     })
     .compileComponents();
   }));

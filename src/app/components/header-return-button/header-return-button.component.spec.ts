@@ -1,10 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderReturnButtonComponent } from './header-return-button.component';
-import { MatButtonModule } from '@angular/material';
-import { RouterModule } from '@angular/router';
-import { ROUTES } from 'src/app/app-routing.module';
+import { MatButtonModule, MatIconModule } from '@angular/material';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute } from '@angular/router';
 
 describe('HeaderReturnButtonComponent', () => {
   let component: HeaderReturnButtonComponent;
@@ -12,13 +11,19 @@ describe('HeaderReturnButtonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderReturnButtonComponent ],
+      declarations: [HeaderReturnButtonComponent],
       imports: [
         MatButtonModule,
+        MatIconModule,
         RouterTestingModule
       ],
+      providers: [
+        {
+          provide: ActivatedRoute, useValue: { routeConfig: { path: '' } }
+        }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

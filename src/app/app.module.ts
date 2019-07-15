@@ -11,12 +11,13 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatListModule, MatIconModule, MatChipsModule } from '@angular/material';
+import { MatDividerModule } from '@angular/material/divider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
@@ -24,9 +25,20 @@ import { ROUTES } from './app-routing.module';
 import { HeaderSignComponent } from './components/header-sign/header-sign.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { HomeComponent } from './components/home/home.component';
-import { HeaderReturnComponent } from './components/header-return/header-return.component';
 import { HeaderReturnButtonComponent } from './components/header-return-button/header-return-button.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { UserMenuComponent } from './components/user-menu/user-menu.component';
+import { EventComponent } from './components/event/event.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ProfilComponent } from './components/profil/profil.component';
+import { ArtistComponent } from './components/artist/artist.component';
+import { VoteComponent } from './components/vote/vote.component';
 
 
 @NgModule({
@@ -38,22 +50,38 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     HeaderSignComponent,
     BannerComponent,
     HomeComponent,
-    HeaderReturnComponent,
     HeaderReturnButtonComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    LoaderComponent,
+    SideMenuComponent,
+    UserMenuComponent,
+    EventComponent,
+    ContactComponent,
+    ProfilComponent,
+    ArtistComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatListModule,
+    MatIconModule,
     MatFormFieldModule,
     MatCheckboxModule,
+    MatDividerModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatChipsModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonToggleModule,
     MatButtonModule,
+    RouterModule.forRoot(ROUTES),
+    MatProgressSpinnerModule,
+    MatGridListModule,
+    MatToolbarModule,
+    MatMenuModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [

@@ -1,3 +1,33 @@
-<p>
-  home works!
-</p>
+<app-header [title]="title"></app-header>
+
+
+
+
+
+<div class="container">
+    <div classe="loader" *ngIf="isNotLoaded">
+        <app-loader></app-loader>
+    </div>
+    <mat-grid-list class="test" cols="3 " rowHeight="304px" gutterSize="20px ">
+
+        <div *ngFor="let artist of artists">
+            <mat-grid-tile [ngStyle]="{'background-image': 'url(' + artist.photo + ')'}">
+                <mat-grid-tile-footer>
+                    <div>
+                        <h1>{{artist.name}}</h1>
+                        <p>{{artist.description}}</p>
+                    </div>
+                    <div class="rating">
+                        <app-vote [nbVote]="artist.nbVotes" [moyVote]="artist.moyVotes"></app-vote>
+                        <div>
+                            <button mat-button (click)="goToArtist(artist.name)"><img class="eye" src="../../assets/eye.svg">VOIR</button>
+                        </div>
+                        <div>
+                            <p><img class="calendar" src="../../assets/calendar.svg"> <a href="">BOOKER</a></p>
+                        </div>
+                    </div>
+                </mat-grid-tile-footer>
+            </mat-grid-tile>
+        </div>
+    </mat-grid-list>
+</div>
