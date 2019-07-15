@@ -39,7 +39,6 @@ export class ArtistComponent implements OnInit {
     this.artistService.getDetailArtist(artistName)
       .then(data => {
         this.artist = data;
-        this.artist.photo = '../../assets/startboy.jpg';
         if (_.isNaN(this.artist.moyVotes)) { this.artist.moyVotes = 0; }
       }).catch(function (e) {
         console.log(e);
