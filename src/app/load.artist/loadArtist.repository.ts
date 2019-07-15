@@ -13,10 +13,13 @@ export class ArtistRepository {
 
     /**
      * Get the artists list
-     * @param control input field
      */
-    getArtists(departmentName: string): Observable<any> {
-        console.log("in repository")
-        return this.http.get(`http://localhost:8080/artistdetails/departments`);
+    getArtists(latitude, longitude): Observable<any> {
+        return this.http.get(`http://localhost:8080/artistdetails/localization?latitude=${latitude}&longitude=${longitude}`);
     }
+
+    getArtistDetail(artistName): Observable<any> {
+        return this.http.get(`http://localhost:8080/artistdetails/artist/${artistName}`);
+    }
+
 }

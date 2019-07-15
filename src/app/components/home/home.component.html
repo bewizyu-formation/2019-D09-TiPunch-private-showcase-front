@@ -2,11 +2,12 @@
 
 
 
-<!-- <div classe="loader" *ngIf="isNotLoaded">
-    <app-loader></app-loader>
-<div> -->
+
 
 <div class="container">
+    <div classe="loader" *ngIf="isNotLoaded">
+        <app-loader></app-loader>
+    </div>
     <mat-grid-list class="test" cols="3 " rowHeight="304px" gutterSize="20px ">
 
         <div *ngFor="let artist of artists">
@@ -29,7 +30,8 @@
                             <p>{{artist.votes}} votes</p>
                         </div>
                         <div>
-                            <button mat-button (click)="goToArtist($event)"><img class="eye" src="../../assets/eye.svg">VOIR</button>
+                            <button mat-button (click)="goToArtist($event)"><img class="eye"
+                                    src="../../assets/eye.svg">VOIR</button>
                         </div>
                         <div>
                             <p><img class="calendar" src="../../assets/calendar.svg"> <a href="">BOOKER</a></p>
