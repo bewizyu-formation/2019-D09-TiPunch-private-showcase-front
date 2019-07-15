@@ -3,6 +3,7 @@ import { ArtistService } from 'src/app/load.artist/loadArtist.service';
 import { ArtistHome } from 'src/app/models/artistHome.model';
 import { Router } from '@angular/router';
 import { PATH_ARTIST } from 'src/app/app-routing.constantes';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,6 @@ import { PATH_ARTIST } from 'src/app/app-routing.constantes';
 export class HomeComponent implements OnInit {
 
   title = 'Artistes dans votre departement';
-
   isNotLoaded = true;
   artists: Array<ArtistHome> = [];
 
@@ -23,6 +23,9 @@ export class HomeComponent implements OnInit {
       .then(data => {
         this.artists = data;
         this.artists[0].photo = '../../assets/startboy.jpg';
+        for (let i = 0; i < this.artists.length; i++) {
+          if (_.isNaN(this.artists[i].moyVotes)) { this.artists[i].moyVotes = 0; }
+        }
         this.isNotLoaded = false;
       }).catch(function (e) {
         console.log(e);
