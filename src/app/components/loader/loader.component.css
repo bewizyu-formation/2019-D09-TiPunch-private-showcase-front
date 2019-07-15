@@ -1,0 +1,26 @@
+
+  .container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin:auto;
+    max-width: 682px;
+    border-radius: 14px;
+    margin-top: 64px;
+    margin-bottom: 16px;
+    padding: 28px, 0px;
+}
+
+.image{
+    position: absolute;
+    top:200px;
+    left: 50%-100px;
+    
+}
+.image-icone{
+  height: 100px;
+  width:200px;
+  opacity: 0.5;
+}
