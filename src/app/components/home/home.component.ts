@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToArtist(artistName : string) {
+  goToArtist(artistName: string) {
     this.router.navigate([PATH_ARTIST, artistName]);
   }
 }
