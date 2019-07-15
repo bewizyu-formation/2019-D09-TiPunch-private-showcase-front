@@ -17,6 +17,7 @@ import { EventComponent } from './components/event/event.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { ArtistComponent } from './components/artist/artist.component';
+import { VoteComponent } from './components/vote/vote.component';
 
 export const ROUTES: Routes = [
     {
@@ -50,6 +51,10 @@ export const ROUTES: Routes = [
     {
         path: PATH_ARTIST + '/:nameArtist',
         component: ArtistComponent
+    },
+    {
+        path: 'vote',
+        component: VoteComponent
     }
 
 ];

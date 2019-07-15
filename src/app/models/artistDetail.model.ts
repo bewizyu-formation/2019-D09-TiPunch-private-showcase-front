@@ -6,7 +6,7 @@ export class ArtistDetail {
         public longDescription: string,
         public site: string,
         public phoneNumber: string,
-        public email: string,
+        public city: string,
         public nbVotes: number,
         public moyVotes: number,
         public departments: Array<string>

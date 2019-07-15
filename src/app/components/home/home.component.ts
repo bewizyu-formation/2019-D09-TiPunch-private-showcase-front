@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
     }.bind(this), 5000);  */ 
   }
 
-  goToArtist(event: Event) {
-    this.router.navigate([PATH_ARTIST, 'TOTO']);
+  goToArtist(artistName: string) {
+    this.router.navigate([PATH_ARTIST, artistName]);
   }
 }
