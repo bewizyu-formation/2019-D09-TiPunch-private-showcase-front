@@ -33,7 +33,7 @@ export class ArtistComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      console.log(params);
+      console.log(params.get('nameArtist'));
     });
   }
 }
