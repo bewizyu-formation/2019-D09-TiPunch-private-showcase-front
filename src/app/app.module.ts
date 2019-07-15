@@ -29,6 +29,7 @@ import { HeaderReturnButtonComponent } from './components/header-return-button/h
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+import {MatGridListModule} from '@angular/material/grid-list';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
@@ -75,6 +76,7 @@ import { ArtistComponent } from './components/artist/artist.component';
     MatButtonModule,
     RouterModule.forRoot(ROUTES),
     MatProgressSpinnerModule,
+    MatGridListModule,
     MatToolbarModule,
     MatMenuModule,
     RouterModule.forRoot(ROUTES)

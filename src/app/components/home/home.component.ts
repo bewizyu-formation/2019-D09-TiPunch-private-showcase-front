@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { ArtistService } from 'src/app/load.artist/loadArtist.service';
 import { ArtistDetail } from 'src/app/models/artistDetail';
-import { Artist } from 'src/app/models/Artist';
-import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
+import { ArtistHome } from 'src/app/models/artistHome.model';
+import { Router } from '@angular/router';
+import { PATH_ARTIST } from 'src/app/app-routing.constantes';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
   test: Array<string> = [];
 
 
-  constructor(public artistService: ArtistService, private cdRef:ChangeDetectorRef) { }
+  constructor(public artistService: ArtistService, private router: Router) { }
 
   getArtistsDetail() {
     this.artistService.getArtists(this.department)
@@ -32,6 +33,12 @@ export class HomeComponent implements OnInit {
         console.log(e);
       })
   }
+  artists: Array<ArtistHome> = [
+    new ArtistHome('../../assets/startboy.jpg', 3, 3, 'The Weeknd', 'Starboy'),
+    new ArtistHome('../../assets/Dans-La-Peau-Digipack.jpg', 5, 2, 'Kyo', 'Derniere dance'),
+    new ArtistHome('../../assets/michaeljackson.jpg', 4, 3, 'Michael Jackson', 'The king of pop')
+  ];
+
 
   ngOnInit() {
     
@@ -45,4 +52,7 @@ export class HomeComponent implements OnInit {
     }.bind(this), 5000);  
   }
 
+  goToArtist(event: Event) {
+    this.router.navigate([PATH_ARTIST, 'TOTO']);
+  }
 }

@@ -6,10 +6,10 @@ import { startWith, map, ignoreElements } from 'rxjs/operators';
 import { UserService } from 'src/app/user/user.service';
 import { HttpClient } from '@angular/common/http';
 import { CommuneService } from 'src/app/commune/commune.service';
-import { User } from 'src/app/models/User';
-import { Artist } from 'src/app/models/Artist';
+import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
 import { PATH_WELCOME, PATH_LOGIN } from 'src/app/app-routing.constantes';
+import { ArtistSignUp } from 'src/app/models/artistSU';
 
 @Component({
   selector: 'app-signup',
@@ -127,7 +127,7 @@ export class SignupComponent implements OnInit {
                   console.log('nom d artiste dispo');
                   // Artist
                   this.errorArtistnameTaken = false;
-                  const artist = new Artist(
+                  const artist = new ArtistSignUp(
                     this.loginCtrl.value,
                     this.passwordCtrl.value,
                     this.emailCtrl.value,

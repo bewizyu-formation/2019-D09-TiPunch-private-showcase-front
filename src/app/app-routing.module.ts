@@ -51,4 +51,5 @@ export const ROUTES: Routes = [
         path: PATH_ARTIST + '/:nameArtist',
         component: ArtistComponent
     }
+
 ];
