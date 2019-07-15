@@ -19,14 +19,14 @@ export class HomeComponent implements OnInit {
   constructor(public artistService: ArtistService, private router: Router) { }
 
   getArtistsDetail(latitude, longitude) {
-    this.artistService.getHomeArtists(latitude,longitude)
+    this.artistService.getHomeArtists(latitude, longitude)
       .then(data => {
         this.artists = data;
-        this.artists[0].photo ='../../assets/startboy.jpg';
-        this.isNotLoaded=false;
+        this.artists[0].photo = '../../assets/startboy.jpg';
+        this.isNotLoaded = false;
       }).catch(function (e) {
         console.log(e);
-      })
+      });
   }
   /* artists: Array<ArtistHome> = [
     new ArtistHome('../../assets/startboy.jpg', 3, 3, 'The Weeknd', 'Starboy'),
@@ -34,27 +34,19 @@ export class HomeComponent implements OnInit {
     new ArtistHome('../../assets/michaeljackson.jpg', 4, 3, 'Michael Jackson', 'The king of pop')
   ]; */
 
-
   ngOnInit() {
     setTimeout(function () {
-    console.log('Before navigator.geolocation')
-    if(navigator.geolocation){
-      console.log('In navigator.geolocation')
-      navigator.geolocation.getCurrentPosition(position=>{        
-        this.getArtistsDetail(position.coords.latitude, position.coords.longitude);
-      },()=>{        
-      this.getArtistsDetail(-100,-200);
-      })
-    }else{
-      this.getArtistsDetail(-100,-200);
-    }
-    this.isNotLoaded=false;
-  }.bind(this), 3000);
-    /* setTimeout(function () {
-      
-      this.isNotLoaded=false;
-      console.log(this.isNotLoaded)
-    }.bind(this), 5000);  */ 
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          this.getArtistsDetail(position.coords.latitude, position.coords.longitude);
+        }, () => {
+          this.getArtistsDetail(-100, -200);
+        });
+      } else {
+        this.getArtistsDetail(-100, -200);
+      }
+      this.isNotLoaded = false;
+    }.bind(this), 3000);
   }
 
   goToArtist(artistName: string) {
