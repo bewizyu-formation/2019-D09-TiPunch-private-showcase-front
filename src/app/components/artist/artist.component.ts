@@ -8,6 +8,7 @@ import _ from 'lodash';
 >>>>>>> 84aa4416a66bb2dda05c206ce2588e6d9635e49a
 
 
+
 @Component({
   selector: 'app-artist',
   templateUrl: './artist.component.html',
@@ -34,7 +35,6 @@ export class ArtistComponent implements OnInit {
     'North Amos',
     20, 4,
     ['Auvergne Rhône-Alpes', 'Savoie', 'Haute Savoie']);
-<<<<<<< HEAD
 
   constructor(private route: ActivatedRoute, public artistService: ArtistService) { }
 
@@ -54,14 +54,4 @@ export class ArtistComponent implements OnInit {
       this.getArtistDetail(params.get('nameArtist'));
     });
   }
-=======
-
-  constructor(private route: ActivatedRoute) { }
-
-  ngOnInit() {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      console.log(params);
-    });
-  }
->>>>>>> 84aa4416a66bb2dda05c206ce2588e6d9635e49a
 }
