@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EnvironmentService } from '../services/environment.service';
 import { User } from '../models/user.model';
-import { Artist } from '../models/artist.model';
 import { FormControl } from '@angular/forms';
+import { ArtistSignUp } from '../models/artistSU';
 
 export const RESOURCES_LOGIN = '/login';
 export const RESOURCES_SIGNUP_USER = '/users/';
@@ -43,7 +43,7 @@ export class UserRepository {
       });
   }
 
-  signUpArtist(artist: Artist) {
+  signUpArtist(artist: ArtistSignUp) {
     return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}/artists/`, {
       username: artist.username,
       password: artist.password,
