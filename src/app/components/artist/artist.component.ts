@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ArtistDetail } from 'src/app/models/artistDetail.model';
-<<<<<<< HEAD
 import { ArtistService } from 'src/app/load.artist/loadArtist.service';
 import _ from 'lodash';
-=======
->>>>>>> 84aa4416a66bb2dda05c206ce2588e6d9635e49a
 
 
 
