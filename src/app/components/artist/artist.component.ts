@@ -31,7 +31,11 @@ export class ArtistComponent implements OnInit {
     '303-732-7953',
     'North Amos',
     20, 4,
-    ['Auvergne Rhône-Alpes', 'Savoie', 'Haute Savoie']);
+    [
+      {name: 'Auvergne Rhône-Alpes'},
+      {name: 'Savoie'}, 
+      {name: 'Haute Savoie'}
+    ]);
 
   constructor(private route: ActivatedRoute, public artistService: ArtistService) { }
 
@@ -39,7 +43,6 @@ export class ArtistComponent implements OnInit {
     this.artistService.getDetailArtist(artistName)
       .then(data => {
         this.artist = data;
-        this.artist.photo = '../../assets/startboy.jpg';
         if (_.isNaN(this.artist.moyVotes)) { this.artist.moyVotes = 0; }
       }).catch(function (e) {
         console.log(e);
