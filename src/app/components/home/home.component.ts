@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
         this.getArtistsDetail(-100, -200);
       }
       this.isNotLoaded = false;
-    }.bind(this), 3000);
+    }.bind(this), 2000);
   }
 
   goToArtist(artistName: string) {

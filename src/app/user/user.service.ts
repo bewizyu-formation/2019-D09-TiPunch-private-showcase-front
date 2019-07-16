@@ -18,6 +18,7 @@ export class UserService {
 
   private checkLogin: boolean;
   private checkArtistname: boolean;
+  private checkpassword: boolean;
 
   constructor(private userRepository: UserRepository, private http: HttpClient) {
   }
@@ -92,6 +93,31 @@ export class UserService {
           reject('Erreur');
         },
         );
+    });
+  }
+
+  checkPasswordMatch(password: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.userRepository
+        .checkPasswordMatch(password)
+        .subscribe((response) => {
+          const obj = JSON.parse(response.passwordMatch);
+          console.log(obj);
+          this.checkpassword = obj;
+          resolve(this.checkpassword);
+        }, () => {
+          reject('Erreur');
+        },
+        );
+    });
+  }
+
+  updateUser(email: string, newPassword: string) {
+    return new Promise((resolve, reject) => {
+      this.userRepository.updateUser(email, newPassword)
+        .subscribe((response: HttpResponse<any>) => {
+          console.log(response.status);
+        });
     });
   }
 }
