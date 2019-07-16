@@ -30,7 +30,7 @@ export class ProfilComponent implements OnInit {
 
   title = 'Private ShowCase';
   passwordIsFalse = false;
-  passwordMatch:boolean;
+  passwordMatch: boolean;
 
   constructor(public fb: FormBuilder,
     public userService: UserService,
@@ -62,6 +62,12 @@ export class ProfilComponent implements OnInit {
     this.userService.checkPasswordMatch(oldPasswordCtrl.value)
       .then(data => {
         this.passwordMatch = data;
+        if (this.passwordMatch) {
+          this.userService.updateUser(this.emailCtrl.value, this.passwordCtrl.value);
+          this.route.navigate([PATH_HOME]);
+        } else {
+          this.passwordIsFalse = true;
+        }
       }).catch(function (e) {
         console.log(e);
       });
@@ -71,24 +77,9 @@ export class ProfilComponent implements OnInit {
   ngOnInit() {
 
   }
-  // Filter for cities autocomplete
-
 
   submit() {
-    
-    /* if (this.oldPasswordCtrl.value === this.user.password) {
-      this.route.navigate([PATH_HOME]);
-    } else {
-      this.passwordIsFalse = true;
-    } */
-    this.checkPasswordMatch(this.oldPasswordCtrl)
-    if (this.passwordMatch) {
-      this.userService.updateUser(this.emailCtrl.value, this.passwordCtrl.value)
-      this.route.navigate([PATH_HOME]);
-    } else {
-      this.passwordIsFalse = true;
-    }
-
+    this.checkPasswordMatch(this.oldPasswordCtrl);
   }
 
   cancel() {

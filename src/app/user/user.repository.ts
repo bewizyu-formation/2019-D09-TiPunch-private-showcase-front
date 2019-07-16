@@ -70,7 +70,7 @@ export class UserRepository {
   }
 
   updateUser(email: string, newPassword: string): Observable<any> {
-    return this.http.put(`http://localhost:8080users/update/?password=${newPassword}&email=${email}`, {
+    return this.http.put(`http://localhost:8080/users/update/?password=${newPassword}&email=${email}`, {
       email: email,
       password: newPassword,
     }, {
