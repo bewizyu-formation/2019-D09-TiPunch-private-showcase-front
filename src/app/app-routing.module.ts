@@ -37,7 +37,7 @@ export const ROUTES: Routes = [
     {
         path: PATH_HOME,
         component: HomeComponent,
-        canActivate:[LoggedInGuard]
+        canActivate: [LoggedInGuard]
     },
     {
         path: PATH_EVENT,

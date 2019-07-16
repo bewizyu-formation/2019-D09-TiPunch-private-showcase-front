@@ -14,7 +14,7 @@ export class WelcomeComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    console.log("Token : "+this.userService.token);
+    console.log('Token : ' + this.userService.token);
   }
 
 }

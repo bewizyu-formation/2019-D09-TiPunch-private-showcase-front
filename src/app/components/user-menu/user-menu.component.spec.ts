@@ -13,7 +13,7 @@ describe('UserMenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserMenuComponent ],
+      declarations: [UserMenuComponent],
       imports: [
         MatButtonToggleModule,
         MatButtonModule,
@@ -22,14 +22,15 @@ describe('UserMenuComponent', () => {
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [LoggedInGuard,
-        {provide: UserService,
+        {
+          provide: UserService,
           useValue: {
-            token:'Token'
+            token: 'Token'
           }
         }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

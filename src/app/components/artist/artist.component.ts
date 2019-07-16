@@ -32,9 +32,9 @@ export class ArtistComponent implements OnInit {
     'North Amos',
     20, 4,
     [
-      {name: 'Auvergne Rhône-Alpes'},
-      {name: 'Savoie'}, 
-      {name: 'Haute Savoie'}
+      { name: 'Auvergne Rhône-Alpes' },
+      { name: 'Savoie' },
+      { name: 'Haute Savoie' }
     ]);
 
   constructor(private route: ActivatedRoute, public artistService: ArtistService) { }
