@@ -29,8 +29,8 @@
 }
 
 .artist-detail_card_img {
-    min-width: 277px;
-    object-fit: cover;
+    max-width: 277px;
+    object-fit: contain;
 }
 
 .artist-detail_card_texts {
@@ -80,8 +80,12 @@
     width: 100%;
 }
 
+.artist-detail_card_informations_comp {
+    width: calc(50% - 1.5px);
+}
+
 .artist-detail_card_divider {
-    border-width: 3px;
+    margin: 0 1px;
     border-color: #979797;
 }
 

@@ -1,4 +1,3 @@
-
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { ArtistService } from 'src/app/load.artist/loadArtist.service';
 import { ArtistHome } from 'src/app/models/artistHome.model';
@@ -23,7 +22,6 @@ export class HomeComponent implements OnInit {
     this.artistService.getHomeArtists(latitude, longitude)
       .then(data => {
         this.artists = data;
-        this.artists[0].photo = '../../assets/startboy.jpg';
         for (let i = 0; i < this.artists.length; i++) {
           if (_.isNaN(this.artists[i].moyVotes)) { this.artists[i].moyVotes = 0; }
         }

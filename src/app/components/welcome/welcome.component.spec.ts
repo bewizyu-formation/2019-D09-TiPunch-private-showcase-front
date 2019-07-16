@@ -3,6 +3,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { WelcomeComponent } from './welcome.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatButtonModule } from '@angular/material';
+import { LoggedInGuard } from 'src/app/services/guards/logged-in-guard.guard';
+import { HttpClientModule } from '@angular/common/http';
+import { APP_CONFIG } from 'src/app/app.config';
+import { environment } from 'src/environments/environment';
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
@@ -12,9 +16,12 @@ describe('WelcomeComponent', () => {
     TestBed.configureTestingModule({
       declarations: [WelcomeComponent],
       imports: [
-        MatButtonModule
+        MatButtonModule,
+        HttpClientModule
       ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [{ provide: APP_CONFIG, useValue: environment },
+        LoggedInGuard]
     })
       .compileComponents();
   }));

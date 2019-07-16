@@ -9,6 +9,6 @@ export class ArtistDetail {
         public city: string,
         public nbVotes: number,
         public moyVotes: number,
-        public departments: Array<string>
+        public departments: Array<Object>
     ) { }
 }

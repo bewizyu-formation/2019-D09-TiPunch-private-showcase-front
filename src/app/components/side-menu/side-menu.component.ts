@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { PATH_HOME, PATH_EVENT, PATH_CONTACT } from 'src/app/app-routing.constantes';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-side-menu',

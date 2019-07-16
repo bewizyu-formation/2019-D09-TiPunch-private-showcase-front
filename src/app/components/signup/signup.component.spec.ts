@@ -13,6 +13,7 @@ import { CommonHeadersInterceptorService } from 'src/app/services/interceptors/c
 import { TokenInterceptorService } from 'src/app/services/interceptors/token-interceptor.service';
 import { ErrorInterceptorService } from 'src/app/services/interceptors/error-interceptor.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import { LoggedInGuard } from 'src/app/services/guards/logged-in-guard.guard';
 
 describe('SignupComponent', () => {
   let component: SignupComponent;
@@ -41,6 +42,7 @@ describe('SignupComponent', () => {
         { provide: HTTP_INTERCEPTORS, useClass: CommonHeadersInterceptorService, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
+        LoggedInGuard
       ]
     })
       .compileComponents();

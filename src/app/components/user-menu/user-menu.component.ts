@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PATH_PROFIL, PATH_ARTIST, PATH_HOME, PATH_WELCOME } from 'src/app/app-routing.constantes';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-user-menu',
@@ -11,7 +12,7 @@ export class UserMenuComponent implements OnInit {
 
   artistName: string;
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -28,9 +29,10 @@ export class UserMenuComponent implements OnInit {
     this.route.navigate([PATH_PROFIL]);
   }
 
-  // A METTRE EN PLACE
   logout() {
     // Faire la déconnection de l'utilisateur courant
+
+    this.userService.token = '';
     // redirection vers home
     this.route.navigate([PATH_WELCOME]);
   }
