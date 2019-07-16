@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { ArtistService } from 'src/app/load.artist/loadArtist.service';
 import { ArtistHome } from 'src/app/models/artistHome.model';
@@ -15,8 +16,8 @@ export class HomeComponent implements OnInit {
   title = 'Artistes dans votre departement';
   isNotLoaded = true;
   artists: Array<ArtistHome> = [];
-
   constructor(public artistService: ArtistService, private router: Router) { }
+
 
   getArtistsDetail(latitude, longitude) {
     this.artistService.getHomeArtists(latitude, longitude)

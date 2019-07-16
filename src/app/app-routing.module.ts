@@ -56,5 +56,4 @@ export const ROUTES: Routes = [
         path: 'vote',
         component: VoteComponent
     }
-
 ];

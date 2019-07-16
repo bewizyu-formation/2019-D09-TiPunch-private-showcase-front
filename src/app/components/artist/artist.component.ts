@@ -5,6 +5,7 @@ import { ArtistService } from 'src/app/load.artist/loadArtist.service';
 import _ from 'lodash';
 
 
+
 @Component({
   selector: 'app-artist',
   templateUrl: './artist.component.html',

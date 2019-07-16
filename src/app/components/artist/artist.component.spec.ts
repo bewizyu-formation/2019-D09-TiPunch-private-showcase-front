@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ArtistComponent } from './artist.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule, MatListModule, MatIconModule } from '@angular/material';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -15,6 +16,7 @@ describe('ArtistComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ArtistComponent],
       imports: [
+        HttpClientModule,
         MatCardModule,
         MatListModule,
         MatIconModule
