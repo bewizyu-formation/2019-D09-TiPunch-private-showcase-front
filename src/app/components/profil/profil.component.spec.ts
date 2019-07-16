@@ -15,8 +15,8 @@ describe('ProfilComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfilComponent ],
-      imports:[
+      declarations: [ProfilComponent],
+      imports: [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
