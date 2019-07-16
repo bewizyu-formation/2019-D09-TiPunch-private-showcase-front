@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfilComponent } from './profil.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,8 +15,8 @@ describe('ProfilComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ProfilComponent],
-      imports: [
+      declarations: [rofilComponent]
+      imports:  [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
@@ -24,9 +24,9 @@ describe('ProfilComponent', () => {
         RouterTestingModule
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      providers: [{provide:APP_CONFIG, useValue: environment}]
+      providers: [{ provide: APP_CONFIG, useValue: environment }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
