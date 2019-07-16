@@ -30,6 +30,7 @@ export class ProfilComponent implements OnInit {
 
   title = 'Private ShowCase';
   passwordIsFalse = false;
+  passwordMatch:boolean;
 
   constructor(public fb: FormBuilder,
     public userService: UserService,
@@ -57,7 +58,14 @@ export class ProfilComponent implements OnInit {
     });
   }
 
-
+  checkPasswordMatch(oldPasswordCtrl) {
+    this.userService.checkPasswordMatch(oldPasswordCtrl.value)
+      .then(data => {
+        this.passwordMatch = data;
+      }).catch(function (e) {
+        console.log(e);
+      });
+  }
 
 
   ngOnInit() {
@@ -67,7 +75,15 @@ export class ProfilComponent implements OnInit {
 
 
   submit() {
-    if (this.oldPasswordCtrl.value === this.user.password) {
+    
+    /* if (this.oldPasswordCtrl.value === this.user.password) {
+      this.route.navigate([PATH_HOME]);
+    } else {
+      this.passwordIsFalse = true;
+    } */
+    this.checkPasswordMatch(this.oldPasswordCtrl)
+    if (this.passwordMatch) {
+      this.userService.updateUser(this.emailCtrl.value, this.passwordCtrl.value)
       this.route.navigate([PATH_HOME]);
     } else {
       this.passwordIsFalse = true;
