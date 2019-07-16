@@ -65,5 +65,18 @@ export class UserRepository {
     return this.http.get(`http://localhost:8080/checknottaken/artistname/${artistName}`);
   }
 
+  checkPasswordMatch(password: string): Observable<any> {
+    return this.http.get(`http://localhost:8080/users/checkpassword?password=${password}`);
+  }
+
+  updateUser(email: string, newPassword: string): Observable<any> {
+    return this.http.put(`http://localhost:8080users/update/?password=${newPassword}&email=${email}`, {
+      email: email,
+      password: newPassword,
+    }, {
+        observe: 'response'
+      });
+  }
+
 
 }
