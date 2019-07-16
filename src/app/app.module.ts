@@ -39,6 +39,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { VoteComponent } from './components/vote/vote.component';
+import { LoggedInGuard } from './services/guards/logged-in-guard.guard';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { VoteComponent } from './components/vote/vote.component';
     { provide: HTTP_INTERCEPTORS, useClass: CommonHeadersInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
+    LoggedInGuard
   ],
   schemas: [
     NO_ERRORS_SCHEMA

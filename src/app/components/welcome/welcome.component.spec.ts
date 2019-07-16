@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { WelcomeComponent } from './welcome.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatButtonModule } from '@angular/material';
+import { LoggedInGuard } from 'src/app/services/guards/logged-in-guard.guard';
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
@@ -14,7 +15,8 @@ describe('WelcomeComponent', () => {
       imports: [
         MatButtonModule
       ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers:[LoggedInGuard]
     })
       .compileComponents();
   }));

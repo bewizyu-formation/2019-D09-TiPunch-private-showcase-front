@@ -18,10 +18,12 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { VoteComponent } from './components/vote/vote.component';
+import { LoggedInGuard } from './services/guards/logged-in-guard.guard';
 
 export const ROUTES: Routes = [
     {
         path: PATH_WELCOME,
+        pathMatch: 'full',
         component: WelcomeComponent
     },
     {
@@ -34,26 +36,27 @@ export const ROUTES: Routes = [
     },
     {
         path: PATH_HOME,
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate:[LoggedInGuard]
     },
     {
         path: PATH_EVENT,
-        component: EventComponent
+        component: EventComponent,
+        canActivate: [LoggedInGuard]
     },
     {
         path: PATH_CONTACT,
-        component: ContactComponent
+        component: ContactComponent,
+        canActivate: [LoggedInGuard]
     },
     {
         path: PATH_PROFIL,
-        component: ProfilComponent
+        component: ProfilComponent,
+        canActivate: [LoggedInGuard]
     },
     {
         path: PATH_ARTIST + '/:nameArtist',
-        component: ArtistComponent
+        component: ArtistComponent,
+        canActivate: [LoggedInGuard]
     },
-    {
-        path: 'vote',
-        component: VoteComponent
-    }
 ];

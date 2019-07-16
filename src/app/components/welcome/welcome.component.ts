@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-welcome',
@@ -10,9 +11,10 @@ export class WelcomeComponent implements OnInit {
   @Input()
   title = 'Private ShowCase';
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    console.log("Token : "+this.userService.token);
   }
 
 }

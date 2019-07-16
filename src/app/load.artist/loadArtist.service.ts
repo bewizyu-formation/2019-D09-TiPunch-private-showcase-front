@@ -52,7 +52,7 @@ export class ArtistService {
                         response.artist.description,
                         response.longDescription,
                         response.site,
-                        response.phoneNumber,
+                        `+33${response.phoneNumber}`,
                         response.artist.city,
                         response.nbVotes,
                         response.totalVotes / response.nbVotes,
